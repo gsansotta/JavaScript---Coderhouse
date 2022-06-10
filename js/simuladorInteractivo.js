@@ -92,7 +92,7 @@ class Fixture {
 }
 
 //INSTANCIO EL OBJETO EQUIPO 1 Y UTILIZO LOS MÉTODOS CREADOS.
-const equipo1 = new Fixture();
+const equipo1 = new Fixture({nombreEquipo:"", resultado:"", partidosJugados:"", partidosGanados:"", partidosEmpatados:"", partidosPerdidos:"", puntos:""});
 equipo1.pedirNombreEquipo();
 equipo1.pedirPartidosJugados();
 equipo1.calcularPuntos();
