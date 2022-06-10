@@ -96,4 +96,4 @@ const equipo1 = new Fixture();
 equipo1.pedirNombreEquipo();
 equipo1.pedirPartidosJugados();
 equipo1.calcularPuntos();
-console.log(equipo1.devolverEstadisticas());
+alert(equipo1.devolverEstadisticas());
