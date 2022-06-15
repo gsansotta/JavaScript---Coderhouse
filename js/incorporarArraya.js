@@ -1,4 +1,12 @@
-//COMIENZO A PUNTEAR LO QUE VA A SER EL FIXTURE QATAR 2022. 
+/* 
+
+DESAFIO COMPLEMENTARIO - INCORPORAR ARRAYS
+
+CREO LA CLASE EQUIPO PARA LUEGO INSTANCIAR LOS 30 EQUIPOS CLASIFICADOS. AÚN FALTAN DOS REPECHAJES 
+
+PARA ESTE DESAFIO, SOLO UTILIZARE EL ATRIBUTO NOMBRE. LOS DEMAS LOS UTILIZARÉ PARA LA PRIMER ENTREGA FINAL.
+
+*/
 
 
 class Equipo{
@@ -10,6 +18,9 @@ class Equipo{
         this.golesContra = golesContra;
     }
 }
+
+//INSTANCIO LOS OBJETO EQUIPOS Y LOS INCORPORO EN SUS GRUPOS (CADA GRUPO ES UN ARRAY)
+
 
 //GRUPO A - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
 const catar = new Equipo ("cat", "Qatar",  "",  "",  "");
@@ -28,27 +39,25 @@ const grupoB = [inglaterra, iran, estadosUnidos, gales];
 
 //GRUPO C - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
 const argentina = new Equipo ("arg", "Argentina", "", "", "");
-const ArabiaSaudita = new Equipo ("sau", "Arabia Saudita", "", "", "");
+const arabiaSaudita = new Equipo ("sau", "Arabia Saudita", "", "", "");
 const mexico = new Equipo ("mex", "Mexico", "", "", "");
 const polonia = new Equipo ("pol", "Polonia", "", "", "");
 
+const grupoC = [argentina, arabiaSaudita, mexico, polonia];
 
-const grupoC = [argentina, ArabiaSaudita, mexico, polonia];
-
-//GRUPO D - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+//GRUPO D - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO. FALTA JUGARSE UN REPECHAJE.
 const francia = new Equipo ( "fra", "Francia", "", "", "");
 const dinamarca = new Equipo ("din", "Dinamarca", "", "", "");
 const tunez = new Equipo ("tun", "Tunez", "", "", "");
 
 const grupoD = [francia, dinamarca, tunez];
 
-//GRUPO E - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+//GRUPO E - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO. FALTA JUGARSE UN REPECHAJE.
 const españa = new Equipo ("esp", "España", "", "", "");
-const vacio = new Equipo ("",  "", "", "", "");
 const alemania = new Equipo ( "ale", "Alemania", "", "", "");
 const japon = new Equipo ("jap", "Japon", "", "", "");
 
-const grupoE = [españa, vacio, alemania, japon];
+const grupoE = [españa, alemania, japon];
 
 //GRUPO F - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
 const belgica = new Equipo ( "bel","Belgica", "", "", "");
@@ -74,9 +83,44 @@ const corea = new Equipo ("cor", "Corea", "", "", "");
 
 const grupoH = [portugal, ghana, uruguay, corea];
 
-console.log([grupoA, grupoB, grupoC, grupoD, grupoE, grupoF, grupoG, grupoH]);
+//MUESTRO POR CONSOLA LOS 8 GRUPOS CON LOS EQUIPOS CLASIFICADOS HASTA EL MOMENTO
+/* console.log([grupoA, grupoB, grupoC, grupoD, grupoE, grupoF, grupoG, grupoH]); */
 
-//AGREGO EQUIPO GANADOR DE REPECHAJE PARA EL GRUPO D
+
+//AGREGO CON FUNCION PUSH AL EQUIPO GANADOR DE REPECHAJE PARA EL GRUPO D
 const australia = new Equipo ("aus", "Australia", "", "", "");
-
 grupoD.push(australia);
+
+//AGREGO CON FUNCION AL PUSH EQUIPO GANADOR DE REPECHAJE PARA EL GRUPO E
+const costaRica = new Equipo ("ric", "Costa Rica", "", "", "");
+grupoE.push(costaRica);
+
+//////////////////////////////////   FINALIZO CARGA DE GRUPOS Y EQUIPOS QUE LOS COMPONEN   ////////////////////////////////// 
+
+
+
+const equiposClasificados = [...grupoA, ...grupoB,...grupoC,...grupoD,...grupoE,...grupoF,...grupoG,...grupoH]
+
+
+//CON FUNCION FOR EACH MUESTRO LOS 32 EQUIPOS CLASIFICADOS AL MUNDIAL
+equiposClasificados.forEach( (equipo) => {
+    console.log(equipo.nombre)
+} )
+
+
+
+//MEDIANTE LA FUNCION SOME LE PERMITO AL USUARIO BUSCAR SI UN EQUIPO CLASIFICÓ O NO AL MUNDIAL
+
+let consulta =  prompt ("Ingrese el pais que desea saber si está clasificado al mundial").toUpperCase();
+
+
+if(equiposClasificados.some((equipo) => (equipo.nombre).toUpperCase() === consulta )){
+    alert (`${consulta} se ha clasificado al Mundial de Qatar 2022.`);
+ } else{
+    alert (`${consulta} No se ha clasificado al Mundial de Qatar 2022.`);
+ }
+
+
+ 
+
+ 
