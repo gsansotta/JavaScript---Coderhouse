@@ -83,8 +83,8 @@ const corea = new Equipo ("cor", "Corea", "", "", "");
 
 const grupoH = [portugal, ghana, uruguay, corea];
 
-//MUESTRO POR CONSOLA LOS 8 GRUPOS CON LOS EQUIPOS CLASIFICADOS HASTA EL MOMENTO
-/* console.log([grupoA, grupoB, grupoC, grupoD, grupoE, grupoF, grupoG, grupoH]); */
+//MUESTRO POR CONSOLA LOS 8 GRUPOS CON LOS 30 EQUIPOS CLASIFICADOS HASTA EL MOMENTO
+console.log([grupoA, grupoB, grupoC, grupoD, grupoE, grupoF, grupoG, grupoH])
 
 
 //AGREGO CON FUNCION PUSH AL EQUIPO GANADOR DE REPECHAJE PARA EL GRUPO D
@@ -97,19 +97,20 @@ grupoE.push(costaRica);
 
 //////////////////////////////////   FINALIZO CARGA DE GRUPOS Y EQUIPOS QUE LOS COMPONEN   ////////////////////////////////// 
 
-
+//CREO UN ARRAY CON TODOS LOS ARRAY DE CADA GRUPO PARA PODER ACCEDER A LOS 32 OBJETOS EQUIPO
 
 const equiposClasificados = [...grupoA, ...grupoB,...grupoC,...grupoD,...grupoE,...grupoF,...grupoG,...grupoH]
 
 
 //CON FUNCION FOR EACH MUESTRO LOS 32 EQUIPOS CLASIFICADOS AL MUNDIAL
+console.log("Los 32 equipos clasificados para el mundial son:")
 equiposClasificados.forEach( (equipo) => {
     console.log(equipo.nombre)
 } )
 
 
 
-//MEDIANTE LA FUNCION SOME LE PERMITO AL USUARIO BUSCAR SI UN EQUIPO CLASIFICÓ O NO AL MUNDIAL
+//MEDIANTE LA FUNCION SOME LE PERMITO AL USUARIO BUSCAR SI UN EQUIPO CLASIFICÓ O NO AL MUNDIAL ACCEDIENDO AL ATRIBUTO NOMBRE DE LOS OBJETOS
 
 let consulta =  prompt ("Ingrese el pais que desea saber si está clasificado al mundial").toUpperCase();
 
@@ -117,7 +118,7 @@ let consulta =  prompt ("Ingrese el pais que desea saber si está clasificado al
 if(equiposClasificados.some((equipo) => (equipo.nombre).toUpperCase() === consulta )){
     alert (`${consulta} se ha clasificado al Mundial de Qatar 2022.`);
  } else{
-    alert (`${consulta} No se ha clasificado al Mundial de Qatar 2022.`);
+    alert (`${consulta} no se ha clasificado al Mundial de Qatar 2022.`);
  }
 
 
