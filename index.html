@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIXTURE QATAR 2022</title>
-    <script src="/js/grupos.js"></script>
+    <script src="/js/grupos.js" async></script>
+    <script src="/js/funciones.js" async></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/style.css">
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-dark">
@@ -25,41 +25,34 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link " href="./index.html">Principal</a>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bg-dark" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Grupos </a>
-                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="nav-link" href="./pages/grupoA.html">Grupo A</a></li>
-                                <li><a class="nav-link" href="./pages/grupoB.html">Grupo B</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoC.html">Grupo C</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoD.html">Grupo D</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoE.html">Grupo E</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoF.html">Grupo F</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoG.html">Grupo G</a></li>
-                                <li> <a class="nav-link" href="./pages/grupoH.html">Grupo H</a></li>
-                            </ul>
-                        </li>
+                        <a class="nav-link " href="./index.html">Principal</a>                        
                         <a class="nav-link" href="./pages/octavos.html">Octavos</a>
                         <a class="nav-link" href="./pages/cuartos.html">Cuartos</a>
                         <a class="nav-link" href="./pages/semifinal.html">Semifinal</a>
                         <a class="nav-link" href="./pages/final.html">Final</a>
                     </div>
                 </div>
+                <img src="./images/FIFA_2009.svg" alt="logo-error" id="logo-fifa">
             </div>
         </nav>
     </header>
-    
-    <main>
-
-
+    <main id="fixture">
+        <h1>GRUPO C</h1>    
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">EQUIPO</th>
+            <th scope="col">PARTIDOS JUGADOS</th>
+            <th scope="col">PUNTOS</th>           
+          </tr>
+        </thead>
+        <tbody id="tabla-grupos">         
+        </tbody>
+      </table>    
     </main>
-
     <!-- SCRIPT BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
         </script>
-
 </body>
-
 </html>
