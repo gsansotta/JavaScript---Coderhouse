@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #8a1538;
+    background: /* #8a1538; */radial-gradient(circle, rgba(173,0,52,1) 0%, rgba(33,10,10,1) 100%);
 }
 
 /* FIN GENERALES */
@@ -19,11 +19,23 @@ body {
     margin-left: 1rem;
 }
 
+#logo-fifa{
+    width: 50px;
+    margin-right: 2rem;
+}
+
+.navbar-nav {
+    float: left;
+    margin: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    position: relative;
+}
+
 .navbar a {
     color: aliceblue;
     padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
-
     font-size: 15px;
 }
 
@@ -33,25 +45,47 @@ body {
 
 /* COMIENZO SECCION PRINCIPAL */
 
+.table{
+    width: 500px;
+    margin: auto;
+    margin-top: 3rem;
+}
+
 #fixture {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-top: 2rem;    
 }
+
+.fechaUno, .fechaDos, .fechaTres{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    background-color: rgba(0, 0, 0, 0.267);
+}
+ main h1{
+    color: aliceblue;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 1px 1px 2px black;;
+ }
 
 .encuentros h1 {
     margin: auto;
     margin-left: 2rem;
     margin-right: 2rem;
+    color: aliceblue;
 }
 
 .encuentros {
     display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
-
     
 }
 
@@ -60,3 +94,9 @@ body {
     flex-direction: column;
 }
   }
+
+
+
+.card{
+    width: 8rem !important;
+}
