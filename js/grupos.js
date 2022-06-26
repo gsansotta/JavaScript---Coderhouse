@@ -17,7 +17,6 @@ class Equipo {
     }
 }
 
-
 //GRUPO A - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
 const catar = new Equipo("cat", "Qatar", 0, 0, 0, 0, "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Catar-Bandera-Asia.png");
 const ecuador = new Equipo("ecu", "Ecuador", 0, 0, 0, 0, "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Ecuador-Bandera-America.png");

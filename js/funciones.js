@@ -3,7 +3,7 @@
 SOLO UTILIZARÉ EL GRUPO DE ARGENTINA (GRUPO C)
 */
 
-
+let fechasJugadas = 0
 const cruces = document.getElementById('fixture')
 
 
@@ -188,16 +188,18 @@ GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEGE
 function guardarFecha1() {
     devuelvoRdoFecha1()
     genera_tabla(grupoC);
+    alert("Se han guardado los resultados de la fecha 1")
 }
 
 function guardarFecha2() {
     devuelvoRdoFecha2()
     genera_tabla(grupoC);
+    alert("Se han guardado los resultados de la fecha 2")
 }
 
 function guardarFecha3() {
     devuelvoRdoFecha3()
-    genera_tabla(grupoC);
+    genera_tabla(grupoC);    
 }
 
 
@@ -208,7 +210,7 @@ function devuelvoRdoFecha1() {
     const resutlado2 = document.getElementById(`primerResultadosau`).value;
     const resutlado3 = document.getElementById(`primerResultadomex`).value;
     const resutlado4 = document.getElementById(`primerResultadopol`).value;
-    
+
     console.log(resutlado1)
     console.log(resutlado2)
     console.log(resutlado3)
@@ -226,19 +228,20 @@ function devuelvoRdoFecha1() {
 
 
 
-     if (resutlado3 == resutlado4) {
+    if (resutlado3 == resutlado4) {
         mexico.puntos = + mexico.puntos + ptsEmpatar;
         polonia.puntos = +  polonia.puntos + ptsEmpatar;
     } else if (resutlado3 > resutlado4) {
         mexico.puntos = + mexico.puntos + ptsGanar;
     } else {
         polonia.puntos = +  polonia.puntos + ptsGanar;
-    } 
-    
-   for (const equipo of grupoC) {
-    equipo.partidosJugados++;
-    console.log(`Los puntos finalizada la primer fecha de ${equipo.nombre} son ${equipo.puntos}`)
-   }
+    }
+
+    for (const equipo of grupoC) {
+        equipo.partidosJugados++;
+        console.log(`Los puntos finalizada la primer fecha de ${equipo.nombre} son ${equipo.puntos}`)
+    }
+    fechasJugadas++;
 }
 
 /* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 2 */
@@ -248,7 +251,7 @@ function devuelvoRdoFecha2() {
     const resutlado2 = document.getElementById(`segundoResultadomex`).value;
     const resutlado3 = document.getElementById(`segundoResultadosau`).value;
     const resutlado4 = document.getElementById(`segundoResultadopol`).value;
-    
+
     console.log(resutlado1)
     console.log(resutlado2)
     console.log(resutlado3)
@@ -257,7 +260,7 @@ function devuelvoRdoFecha2() {
 
     if (resutlado1 == resutlado2) {
         argentina.puntos = + argentina.puntos + ptsEmpatar;
-        mexico.puntos = + mexico.puntos + ptsEmpatar;      
+        mexico.puntos = + mexico.puntos + ptsEmpatar;
     } else if (resutlado1 > resutlado2) {
         argentina.puntos = + argentina.puntos + ptsGanar;
     } else {
@@ -266,19 +269,20 @@ function devuelvoRdoFecha2() {
 
 
 
-     if (resutlado3 == resutlado4) {
+    if (resutlado3 == resutlado4) {
         arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsEmpatar;
         polonia.puntos = +  polonia.puntos + ptsEmpatar;
     } else if (resutlado3 > resutlado4) {
         arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsGanar;
     } else {
         polonia.puntos = +  polonia.puntos + ptsGanar;
-    } 
-    
-   for (const equipo of grupoC) {
-    equipo.partidosJugados++;
-    console.log(`Los puntos finalizada la segunda fecha de ${equipo.nombre} son ${equipo.puntos}`)
-   }
+    }
+
+    for (const equipo of grupoC) {
+        equipo.partidosJugados++;
+        console.log(`Los puntos finalizada la segunda fecha de ${equipo.nombre} son ${equipo.puntos}`)
+    }
+    fechasJugadas++;
 }
 
 
@@ -288,7 +292,7 @@ function devuelvoRdoFecha3() {
     const resutlado2 = document.getElementById(`tercerResultadopol`).value;
     const resutlado3 = document.getElementById(`tercerResultadosau`).value;
     const resutlado4 = document.getElementById(`tercerResultadomex`).value;
-    
+
     console.log(resutlado1)
     console.log(resutlado2)
     console.log(resutlado3)
@@ -297,7 +301,7 @@ function devuelvoRdoFecha3() {
 
     if (resutlado1 == resutlado2) {
         argentina.puntos = + argentina.puntos + ptsEmpatar;
-        polonia.puntos = +  polonia.puntos + ptsEmpatar;           
+        polonia.puntos = +  polonia.puntos + ptsEmpatar;
     } else if (resutlado1 > resutlado2) {
         argentina.puntos = + argentina.puntos + ptsGanar;
     } else {
@@ -305,48 +309,66 @@ function devuelvoRdoFecha3() {
     }
 
 
-     if (resutlado3 == resutlado4) {
+    if (resutlado3 == resutlado4) {
         arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsEmpatar;
-        mexico.puntos = + mexico.puntos + ptsEmpatar;  
-    } else if (resutlado3 > resutlado4) {       
+        mexico.puntos = + mexico.puntos + ptsEmpatar;
+    } else if (resutlado3 > resutlado4) {
         arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsGanar;
     } else {
         mexico.puntos = + mexico.puntos + ptsGanar;
-    } 
+    }
+
+    for (const equipo of grupoC) {
+        equipo.partidosJugados++;
+        console.log(`Los puntos finalizada la tercer fecha de ${equipo.nombre} son ${equipo.puntos}`)
+    }
+    fechasJugadas++;
     
-   for (const equipo of grupoC) {
-    equipo.partidosJugados++;
-    console.log(`Los puntos finalizada la tercer fecha de ${equipo.nombre} son ${equipo.puntos}`)
-   }
 }
 
-/* GENERO TABLA MEDIANTE DOM QUE IRA MOSTRANDO Y RENDERIZANDO LAS POSICIONES SEGUN LOS RESULTADOS */
+/* GENERO TABLA MEDIANTE DOM QUE IRA MOSTRANDO Y RENDERIZANDO MEDIANTE EVENTOS.
+ LAS POSICIONES SE MOSTRARAN EN FUNCION DE LOS PUNTOS MEDIANTE EL USO DE LA FUNCION SORT */
+
+ /* AGREGO UN IF PARA QUE CUANDO LOS PARTIDOS JUGADOS LLEGUEN A 3 INFORME POR ALERT QUIENES CLASIFICAN */
 function genera_tabla(grupo) {
-    
+
     const body = document.querySelector("#tabla-grupos")
-    body.innerHTML ="";
-    
+    body.innerHTML = "";
+
     const tabla = `<tr>
     <th scope="row">@nombre</th>
     <td>@partidosJugados</td>
     <td>@puntos</td>    
     </tr>`
 
-    let tablaPosiciones = "";    
-    
+    let tablaPosiciones = "";
+
     grupo.sort(function (a, b) {
         return (b.puntos - a.puntos)
-    }) 
+        
+    })
 
     for (let i = 0; i < grupo.length; i++) {
         tablaPosiciones += tabla.replace(/@nombre/g, grupo[i].nombre)
             .replace(/@partidosJugados/g, grupo[i].partidosJugados)
             .replace(/@puntos/g, grupo[i].puntos)
 
+       
     }
 
-    body.innerHTML = tablaPosiciones;    
+    body.innerHTML = tablaPosiciones;
+
+    if (fechasJugadas == 3){
+       let primero = grupo[0];
+       let segundo = grupo[1];
+       alert(`Clasifican a octavos de final: En primer posición ${primero.nombre} y en segunda posición ${segundo.nombre}`)
+    }
+    
 }
 
 genera_tabla(grupoC)
+
+
+
+
 
