@@ -24,7 +24,11 @@ body {
     margin-right: 2rem;
 }
 
-
+header h3{
+    font-size: 2vw;
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 /* FIN HEADER */
 
 

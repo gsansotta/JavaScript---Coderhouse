@@ -85,12 +85,8 @@ const grupoH = [portugal, ghana, uruguay, corea];
 /* OCTAVOS DE FINAL */
  const cruce1 = [];
  const cruce2 = [];
- const cruce1CD = [];
- const cruce2DC = [];
- const cruce1EF = [];
- const cruce2FE = [];
- const cruce1GH = [];
- const cruce2HG = [];
+ const cruce3 = [];
+ const cruce4 = [];
 
  
  localStorage.setItem('grupoB', grupoB)
