@@ -1,374 +1,112 @@
 
-/* CREO LOS CRUCES PARA LAS PRIMERAS 3 FECHAS DE LA FASE DE GRUPO MEDIANTE EL USO DE DOM 
-SOLO UTILIZARÉ EL GRUPO DE ARGENTINA (GRUPO C)
-*/
-
-let fechasJugadas = 0
 const cruces = document.getElementById('fixture')
 
+function mostrarEquipos(grupo, funcionDinamica) {
 
-/* CREO TRES FUNCIONES PARA DISPUTAR LAS TRES FECHAS DE LAS FASES DE GRUPO. GENERO CON INNER HTML LAS CARDS PARA LOS CRUCES.
-PARA QUE COINCIDAN EN EL ORDEN REAL APUNTÉ A LA POSICION DE LOS OBJETOS EQUIPOS DENTRO DEL ARRAY GRUPO C.
+    let grupos = document.createElement('section')
+    grupos.className = 'grupo'
+    var i = 0;
+    for (const Equipo of grupo) {
 
-CADA FECHA TIENE AL FINAL UN BOTON GUARDAR FECHA PARA QUE LUEGO DE INGRESAR LOS RESULTADOS SE REFLEJEN EN LA TABLA DE POSICIONES, LA CUAL ESTÁ
-CREADA AL FINAL MEDIANTE LA FUNCION genera_tabla
-
-*/
-
-/* FECHA 1 DEL GRUPO */
-function jugarFecha1(grupo) {
-
-
-    let sectionFechaUno = document.createElement('section')
-    sectionFechaUno.className = 'fechaUno'
-    sectionFechaUno.innerHTML = `
-
-                               <h1>FECHA 1</h1> 
-
-            
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[0]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[0]['nombre']}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[0]['id']}"> </div>
-            
-            </div>    
-
-            <h1>VS</h1>  
-
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[1]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[1]['nombre']}</h5><input type="number" min="0" max="9" id="primerResultado${grupo[1]['id']}"> </div>
-            </div>
-            </div>            
-
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[2]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[2]['nombre']}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[2]['id']}"> </div>
-            </div>    
-
-            <h1>VS</h1>  
-                      
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[3]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[3]['nombre']}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[3]['id']}"> </div>
-            </div></div>
-            
-            
-            <button type="button" class="btn btn-danger" onclick="guardarFecha1('fecha1')"  >Guardar Fecha 1</button>
-
-           
-            
-            `
-
-
-    cruces.appendChild(sectionFechaUno);
+        grupos.innerHTML +=
+            `          
+         <div class="div">
+         <div id="equipo">
+            <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
+            <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')">${Equipo.nombre}</button>
+         </div>`
+        i++;
+    }
+    cruces.appendChild(grupos);
 
 }
 
 
-/* FECHA 2 DEL GRUPO */
 
-function jugarFecha2(grupo) {
-
-
-    let sectionFechaDos = document.createElement('section')
-    sectionFechaDos.className = 'fechaDos'
-    sectionFechaDos.innerHTML = `
-                                      <h1>FECHA 2</h1>  
-                    
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[0]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[0]['nombre']}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[0]['id']}"> </div>
-            </div>    
-
-            <h1>VS</h1>  
-
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[2]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[2]['nombre']}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[2]['id']}"> </div>
-            </div>
-            </div>
-
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[1]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[1]['nombre']}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[1]['id']}"> </div>
-            </div>    
-
-            <h1>VS</h1>  
-                      
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[3]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[3]['nombre']}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[3]['id']}"> </div>
-            </div></div>
-            <button type="button" class="btn btn-danger" onclick="guardarFecha2('fecha2')">  Guardar Fecha 2</button>
-            `
-
-
-
-    cruces.appendChild(sectionFechaDos);
-
-
-
-
-}
-
-/* FECHA 3 DEL GRUPO */
-
-
-function jugarFecha3(grupo) {
-
-
-    let sectionFechaTres = document.createElement('section')
-    sectionFechaTres.className = 'fechaTres'
-    sectionFechaTres.innerHTML = `
-                                      <h1>FECHA 3</h1>  
-                    
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[0]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[0]['nombre']}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[0]['id']}"> </div>
-            </div>    
-
-            <h1>VS</h1>  
-
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[3]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[3]['nombre']}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[3]['id']}"> </div>
-            </div>
-            </div>
-
-
-            <div class="encuentros">
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[1]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[1]['nombre']}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[1]['id']}"> </div>
-            </div>    
-
-            <h1>VS</h1>  
-                      
-            <div class="card" style="width: 18rem;">
-            <img src="${grupo[2]['bandera']}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"> ${grupo[2]['nombre']}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[2]['id']}"> </div>
-            </div></div>
-            <button type="button" class="btn btn-danger" onclick="guardarFecha3('fecha3')">Guardar Fecha 3</button>`
-
-
-
-    cruces.appendChild(sectionFechaTres);
-
-}
-
-jugarFecha1(grupoC)
-jugarFecha2(grupoC)
-jugarFecha3(grupoC)
-
-
-/* LOS TRES BOTONES GUARDAR FECHA CORERSPONDIENTES A CADA FECHA TIENEN EL EVENTO CLICK, A PARTIR DEL CUAL LE PASO LAS FUNCIONES DEVUELVO FECHA Y 
-GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEGEN EN LA TABLA DE POSICIONES */
-function guardarFecha1() {
-    devuelvoRdoFecha1()
-    genera_tabla(grupoC);
-    alert("Se han guardado los resultados de la fecha 1")
-}
-
-function guardarFecha2() {
-    devuelvoRdoFecha2()
-    genera_tabla(grupoC);
-    alert("Se han guardado los resultados de la fecha 2")
-}
-
-function guardarFecha3() {
-    devuelvoRdoFecha3()
-    genera_tabla(grupoC);    
-}
-
-
-/* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 1 */
-/* TOMO EL VALOR MEDIANTE LOS ID DE LOS INPUTS DE LOS RESULTADOS */
-function devuelvoRdoFecha1() {
-    const resutlado1 = document.getElementById(`primerResultadoarg`).value;
-    const resutlado2 = document.getElementById(`primerResultadosau`).value;
-    const resutlado3 = document.getElementById(`primerResultadomex`).value;
-    const resutlado4 = document.getElementById(`primerResultadopol`).value;
-
-    console.log(resutlado1)
-    console.log(resutlado2)
-    console.log(resutlado3)
-    console.log(resutlado4)
-
-
-    if (resutlado1 == resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsEmpatar;
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsEmpatar;
-    } else if (resutlado1 > resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsGanar;
-    } else {
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsGanar;
-    }
-
-
-
-    if (resutlado3 == resutlado4) {
-        mexico.puntos = + mexico.puntos + ptsEmpatar;
-        polonia.puntos = +  polonia.puntos + ptsEmpatar;
-    } else if (resutlado3 > resutlado4) {
-        mexico.puntos = + mexico.puntos + ptsGanar;
-    } else {
-        polonia.puntos = +  polonia.puntos + ptsGanar;
-    }
-
-    for (const equipo of grupoC) {
-        equipo.partidosJugados++;
-        console.log(`Los puntos finalizada la primer fecha de ${equipo.nombre} son ${equipo.puntos}`)
-    }
-    fechasJugadas++;
-}
-
-/* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 2 */
-
-function devuelvoRdoFecha2() {
-    const resutlado1 = document.getElementById(`segundoResultadoarg`).value;
-    const resutlado2 = document.getElementById(`segundoResultadomex`).value;
-    const resutlado3 = document.getElementById(`segundoResultadosau`).value;
-    const resutlado4 = document.getElementById(`segundoResultadopol`).value;
-
-    console.log(resutlado1)
-    console.log(resutlado2)
-    console.log(resutlado3)
-    console.log(resutlado4)
-
-
-    if (resutlado1 == resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsEmpatar;
-        mexico.puntos = + mexico.puntos + ptsEmpatar;
-    } else if (resutlado1 > resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsGanar;
-    } else {
-        mexico.puntos = + mexico.puntos + ptsGanar;
-    }
-
-
-
-    if (resutlado3 == resutlado4) {
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsEmpatar;
-        polonia.puntos = +  polonia.puntos + ptsEmpatar;
-    } else if (resutlado3 > resutlado4) {
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsGanar;
-    } else {
-        polonia.puntos = +  polonia.puntos + ptsGanar;
-    }
-
-    for (const equipo of grupoC) {
-        equipo.partidosJugados++;
-        console.log(`Los puntos finalizada la segunda fecha de ${equipo.nombre} son ${equipo.puntos}`)
-    }
-    fechasJugadas++;
-}
-
-
-/* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 3 */
-function devuelvoRdoFecha3() {
-    const resutlado1 = document.getElementById(`tercerResultadoarg`).value;
-    const resutlado2 = document.getElementById(`tercerResultadopol`).value;
-    const resutlado3 = document.getElementById(`tercerResultadosau`).value;
-    const resutlado4 = document.getElementById(`tercerResultadomex`).value;
-
-    console.log(resutlado1)
-    console.log(resutlado2)
-    console.log(resutlado3)
-    console.log(resutlado4)
-
-
-    if (resutlado1 == resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsEmpatar;
-        polonia.puntos = +  polonia.puntos + ptsEmpatar;
-    } else if (resutlado1 > resutlado2) {
-        argentina.puntos = + argentina.puntos + ptsGanar;
-    } else {
-        polonia.puntos = +  polonia.puntos + ptsGanar;
-    }
-
-
-    if (resutlado3 == resutlado4) {
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsEmpatar;
-        mexico.puntos = + mexico.puntos + ptsEmpatar;
-    } else if (resutlado3 > resutlado4) {
-        arabiaSaudita.puntos = + arabiaSaudita.puntos + ptsGanar;
-    } else {
-        mexico.puntos = + mexico.puntos + ptsGanar;
-    }
-
-    for (const equipo of grupoC) {
-        equipo.partidosJugados++;
-        console.log(`Los puntos finalizada la tercer fecha de ${equipo.nombre} son ${equipo.puntos}`)
-    }
-    fechasJugadas++;
-    
-}
-
-/* GENERO TABLA MEDIANTE DOM QUE IRA MOSTRANDO Y RENDERIZANDO MEDIANTE EVENTOS.
- LAS POSICIONES SE MOSTRARAN EN FUNCION DE LOS PUNTOS MEDIANTE EL USO DE LA FUNCION SORT */
-
- /* AGREGO UN IF PARA QUE CUANDO LOS PARTIDOS JUGADOS LLEGUEN A 3 INFORME POR ALERT QUIENES CLASIFICAN */
-function genera_tabla(grupo) {
-
-    const body = document.querySelector("#tabla-grupos")
-    body.innerHTML = "";
-
-    const tabla = `<tr>
-    <th scope="row">@nombre</th>
-    <td>@partidosJugados</td>
-    <td>@puntos</td>    
-    </tr>`
-
-    let tablaPosiciones = "";
-
-    grupo.sort(function (a, b) {
-        return (b.puntos - a.puntos)
-        
-    })
-
-    for (let i = 0; i < grupo.length; i++) {
-        tablaPosiciones += tabla.replace(/@nombre/g, grupo[i].nombre)
-            .replace(/@partidosJugados/g, grupo[i].partidosJugados)
-            .replace(/@puntos/g, grupo[i].puntos)
-
+mostrarEquipos(grupoA, "primerCruce")
+mostrarEquipos(grupoB, "primerCruce")
+mostrarEquipos(grupoC, "segundoCruce")
+mostrarEquipos(grupoD, "segundoCruce")
+mostrarEquipos(grupoE, "tercerCruce")
+mostrarEquipos(grupoF, "tercerCruce")
+mostrarEquipos(grupoG, "cuartoCruce")
+mostrarEquipos(grupoH, "cuartoCruce")
+
+function primerCruce(id) {
+    let equiposGrupoA = [];
+    let equiposGrupoB = [];
+    for (const equipo of equiposClasificados) {
+        if (equipo.id == id && !cruce1.includes(equipo)) {
+            console.log(cruce1)
+            if (cruce1.length < 4) {
+
+                if (cruce1.filter(actual => actual.grupo == 'A').length < 2 && equipo.grupo == "A") {
+                    equiposGrupoA.push(equipo)
+                }
+                if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B") {
+                    equiposGrupoB.push(equipo)
+                }
+
+            }
+        }
        
     }
-
-    body.innerHTML = tablaPosiciones;
-
-    if (fechasJugadas == 3){
-       let primero = grupo[0];
-       let segundo = grupo[1];
-       alert(`Clasifican a octavos de final: En primer posición ${primero.nombre} y en segunda posición ${segundo.nombre}`)
-    }
     
+    cruce1.push(...equiposGrupoA)
+    cruce1.push(...equiposGrupoB)
+    localStorage.setItem('cruce1', JSON.stringify(cruce1))
+
+    mostrarEquiposOctavos(cruce1)
+}
+const recuperoCruceUno = () => {
+    let prueba = JSON.parse(localStorage.getItem("cruce1"));
+    console.log(prueba)
+
+}
+recuperoCruceUno();
+
+//MUESTRO POR CONSOLA EL PRIMER CRUCE DEL LOCAL STORAGE//
+console.log(JSON.parse(localStorage.getItem('cruce1')))
+
+
+function segundoCruce(id) {
+    for (const equipo of equiposClasificados) {
+        if (equipo.id == id) {
+            console.log(cruce2)
+            if (cruce2.length < 4) {
+                cruce2.push(equipo)
+                localStorage.setItem('cruce2', JSON.stringify(cruce2))
+            }
+        }
+
+    }
 }
 
-genera_tabla(grupoC)
 
 
+const crucesOctavos = document.getElementById('octavos')
+
+function mostrarEquiposOctavos(cruce) {
+
+    let crucesOct = document.createElement('section')
+    crucesOct.className = 'octavosFinal'
+    
+
+    cruce.forEach(Equipo => {               
+        crucesOct.innerHTML =
+        `          
+        <div class="div">
+        <div id="equipo">
+        <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="('${Equipo.id}')">${Equipo.nombre}</button>
+        </div>`       
+                
+        
+        crucesOctavos.appendChild(crucesOct);              
+
+    });
+
+}
 
 
 
