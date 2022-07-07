@@ -87,6 +87,7 @@ const grupoH = [portugal, ghana, uruguay, corea];
  const cruce2 = [];
  const cruce3 = [];
  const cruce4 = [];
+ const clasificadosOctavos = []
 
  
  localStorage.setItem('grupoB', grupoB)
@@ -171,4 +172,34 @@ console.log(grupoAback, grupoBback,grupoCback,grupoDback,grupoEback,grupoFback,g
     }
 
 } 
+ */
+/* 
+
+const crucesOctavos = document.getElementById('octavos')
+
+function mostrarEquiposOctavos(cruce) {
+
+    let crucesOct = document.createElement('section')
+    crucesOct.className = 'octavosFinal'
+    
+
+    cruce.forEach(Equipo => { 
+        crucesOct.innerHTML =
+         
+        `          
+        <div class="div">
+        <div id="equipo">
+        <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="('${Equipo.id}')">${Equipo.nombre}</button>
+        </div>`      
+                
+        
+        crucesOctavos.appendChild(crucesOct);              
+
+    });
+
+}
+
+
+
  */

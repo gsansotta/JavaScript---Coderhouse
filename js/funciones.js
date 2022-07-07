@@ -71,36 +71,40 @@ MISMA LOGICA APLICO AL FILTER PARA QUE EL ALGORITMO SEPA CUANDO CORTAR EL PUSH E
 function primerCruce(id) {
     let equiposGrupoA = [];
     let equiposGrupoB = [];
-        for (const equipo of equiposClasificados) {
+    for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce1.includes(equipo)) {
             console.log(cruce1)
             if (cruce1.length < 4) {
 
                 if (cruce1.filter(actual => actual.grupo == 'A').length < 2 && equipo.grupo == "A") {
-                    equiposGrupoA.push(equipo)
-                   
-                }
+                    equiposGrupoA.push(equipo) 
+
+                } 
+                
+
+
+
                 if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B") {
                     equiposGrupoB.push(equipo)
-                }
-
+                } 
             }
         }
-       
+
     }
-    
+
     /* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
     PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
     cruce1.push(...equiposGrupoA)
     cruce1.push(...equiposGrupoB)
     localStorage.setItem('cruce1', JSON.stringify(cruce1))
-
-    mostrarEquiposOctavos(cruce1)
+    
+    mostrarEquiposOctavos(equiposGrupoA)
+    mostrarEquiposOctavos(equiposGrupoB)
 }
 
 const recuperoCruceUno = () => {
     let cruceUnoRecuperado = JSON.parse(localStorage.getItem("cruce1"));
-    console.log(cruceUnoRecuperado)
+    console.log(cruceUnoRecuperado)   
 
 }
 recuperoCruceUno();
@@ -108,7 +112,7 @@ recuperoCruceUno();
 //MUESTRO POR CONSOLA EL PRIMER CRUCE DEL LOCAL STORAGE//
 console.log(JSON.parse(localStorage.getItem('cruce1')))
 
- 
+
 
 ///////////////////////////////////////////////////////SEGUNDO CRUCE GRUPO C-D///////////////////////////////////////////////////////
 
@@ -116,14 +120,14 @@ console.log(JSON.parse(localStorage.getItem('cruce1')))
 function segundoCruce(id) {
     let equiposGrupoC = [];
     let equiposGrupoD = [];
-        for (const equipo of equiposClasificados) {
+    for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce2.includes(equipo)) {
             console.log(cruce2)
             if (cruce2.length < 4) {
 
                 if (cruce2.filter(actual => actual.grupo == 'C').length < 2 && equipo.grupo == "C") {
                     equiposGrupoC.push(equipo)
-                   
+
                 }
                 if (cruce2.filter(actual => actual.grupo == 'D').length < 2 && equipo.grupo == "D") {
                     equiposGrupoD.push(equipo)
@@ -131,14 +135,15 @@ function segundoCruce(id) {
 
             }
         }
-       
+
     }
-    
+
     cruce2.push(...equiposGrupoC)
     cruce2.push(...equiposGrupoD)
     localStorage.setItem('cruce2', JSON.stringify(cruce2))
 
-    mostrarEquiposOctavos(cruce2)
+    mostrarEquiposOctavos(equiposGrupoC)
+    mostrarEquiposOctavos(equiposGrupoD)
 }
 const recuperoCruceDos = () => {
     let cruceDosRecuperado = JSON.parse(localStorage.getItem("cruce2"));
@@ -159,14 +164,14 @@ console.log(JSON.parse(localStorage.getItem('cruce2')))
 function tercerCruce(id) {
     let equiposGrupoE = [];
     let equiposGrupoF = [];
-        for (const equipo of equiposClasificados) {
+    for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce3.includes(equipo)) {
             console.log(cruce3)
             if (cruce3.length < 4) {
 
                 if (cruce3.filter(actual => actual.grupo == 'E').length < 2 && equipo.grupo == "E") {
                     equiposGrupoE.push(equipo)
-                   
+
                 }
                 if (cruce3.filter(actual => actual.grupo == 'F').length < 2 && equipo.grupo == "F") {
                     equiposGrupoF.push(equipo)
@@ -174,14 +179,15 @@ function tercerCruce(id) {
 
             }
         }
-       
+
     }
-    
+
     cruce3.push(...equiposGrupoE)
     cruce3.push(...equiposGrupoF)
     localStorage.setItem('cruce3', JSON.stringify(cruce3))
 
-    mostrarEquiposOctavos(cruce3)
+    mostrarEquiposOctavos(equiposGrupoE)
+    mostrarEquiposOctavos(equiposGrupoF)
 }
 const recuperoCruceTres = () => {
     let cruceTresRecuperado = JSON.parse(localStorage.getItem("cruce3"));
@@ -200,14 +206,14 @@ console.log(JSON.parse(localStorage.getItem('cruce3')))
 function cuartoCruce(id) {
     let equiposGrupoG = [];
     let equiposGrupoH = [];
-        for (const equipo of equiposClasificados) {
+    for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce4.includes(equipo)) {
             console.log(cruce4)
             if (cruce4.length < 4) {
 
                 if (cruce4.filter(actual => actual.grupo == 'G').length < 2 && equipo.grupo == "G") {
                     equiposGrupoG.push(equipo)
-                   
+
                 }
                 if (cruce4.filter(actual => actual.grupo == 'H').length < 2 && equipo.grupo == "H") {
                     equiposGrupoH.push(equipo)
@@ -215,14 +221,15 @@ function cuartoCruce(id) {
 
             }
         }
-       
+
     }
-    
+
     cruce4.push(...equiposGrupoG)
     cruce4.push(...equiposGrupoH)
     localStorage.setItem('cruce4', JSON.stringify(cruce4))
 
-    mostrarEquiposOctavos(cruce4)
+    mostrarEquiposOctavos(equiposGrupoG)
+    mostrarEquiposOctavos(equiposGrupoH)
 }
 const recuperoCruceCuatro = () => {
     let cruceCuatroRecuperado = JSON.parse(localStorage.getItem("cruce4"));
@@ -236,29 +243,37 @@ console.log(JSON.parse(localStorage.getItem('cruce4')))
 
 
 
+
+
 const crucesOctavos = document.getElementById('octavos')
 
 function mostrarEquiposOctavos(cruce) {
-
+    
+    
     let crucesOct = document.createElement('section')
     crucesOct.className = 'octavosFinal'
-    
 
-    cruce.forEach(Equipo => {               
+    cruce.forEach(Equipo => {
+        
+       
         crucesOct.innerHTML =
-        `          
+
+            `          
         <div class="div">
         <div id="equipo">
         <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="('${Equipo.id}')">${Equipo.nombre}</button>
-        </div>`       
-                
+        </div>`
+
+
+        crucesOctavos.appendChild(crucesOct);
         
-        crucesOctavos.appendChild(crucesOct);              
 
     });
 
 }
 
+
+console.log(clasificadosOctavos)
 
 
