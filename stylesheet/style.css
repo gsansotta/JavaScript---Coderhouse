@@ -68,6 +68,7 @@ h1{
 .grupo{
     width: 8rem !important;
   }
+  
 }
 
 #equipo{
@@ -83,6 +84,10 @@ img{
     margin-right: 1rem;
 }
 
+#copa{
+    width: 15rem;
+}
+
 button{
     width: 7rem;
     margin-top: 10px;
@@ -95,10 +100,11 @@ button:hover {
 
 
 
-    .cuadro-octavos{
+    .cruces-interactivos{
         display: flex;       
         align-items: center;
         justify-content: center;
+       
 
     }
 
@@ -108,12 +114,12 @@ button:hover {
         border-right: 4px solid #000000;
         border-bottom: 4px solid #000000;
         border-left: 4px solid #000000;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        height: 150px;
-        width: 200px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        height: 130px;
+        width: 150px;
     }
-    
+/*     
     #primer-cuadro{
         margin-top: 10rem;
         margin-right: 70rem;
@@ -134,6 +140,19 @@ button:hover {
     }
 
     
-
+ */
    
+
+.octavos-uno, .cuartos-uno, .semifinal-uno{
+    margin-right: 3rem;
+}
+
+.octavos-dos, .cuartos-dos, .semifinal-dos{
+    margin-left: 3rem;
+}
+
+#acomodo-cuartos{
+    margin-bottom: 10rem;
+}
+
 

@@ -42,14 +42,14 @@ function mostrarEquipos(grupo, funcionDinamica) {
 
 
 
-mostrarEquipos(grupoA, "primerCruce")
-mostrarEquipos(grupoB, "primerCruce")
-mostrarEquipos(grupoC, "segundoCruce")
-mostrarEquipos(grupoD, "segundoCruce")
-mostrarEquipos(grupoE, "tercerCruce")
-mostrarEquipos(grupoF, "tercerCruce")
-mostrarEquipos(grupoG, "cuartoCruce")
-mostrarEquipos(grupoH, "cuartoCruce")
+mostrarEquipos(grupoA,"primerCruce")
+mostrarEquipos(grupoB,"primerCruce")
+mostrarEquipos(grupoC,"segundoCruce")
+mostrarEquipos(grupoD,"segundoCruce")
+mostrarEquipos(grupoE,"tercerCruce")
+mostrarEquipos(grupoF,"tercerCruce")
+mostrarEquipos(grupoG,"cuartoCruce")
+mostrarEquipos(grupoH,"cuartoCruce")
 
 
 
