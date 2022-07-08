@@ -1,3 +1,143 @@
+class Equipo {
+    constructor(id, nombre, grupo, bandera) {
+        this.id = id;
+        this.nombre = nombre;     
+        this.grupo = grupo;
+        this.bandera = bandera;
+    }
+    
+
+}
+
+/* FASE GRUPOS */
+
+//GRUPO A - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const catar = new Equipo("cat", "Qatar", "A", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Catar-Bandera-Asia.png");
+const ecuador = new Equipo("ecu", "Ecuador","A","https://www.mundoprimaria.com/wp-content/uploads/2020/04/Ecuador-Bandera-America.png");
+const senegal = new Equipo("sen", "Senegal","A", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Senegal-Bandera-Africa.png");
+const holanda = new Equipo("hol", "Holanda","A",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Pa%C3%ADses-Bajos-Bandera-Europa.png");
+const grupoA = [catar, ecuador, senegal, holanda];
+
+//GRUPO B - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const inglaterra = new Equipo("ing", "Inglaterra", "B", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/1920px-Flag_of_England.svg.png");
+const iran = new Equipo("ira", "Iran","B", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Ir%C3%A1n-Bandera-Asia.png");
+const estadosUnidos = new Equipo("eua", "EE.UU", "B", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/EEUU-Bandera-America.png");
+const gales = new Equipo("gal", "Gales","B", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/1920px-Flag_of_Wales.svg.png");
+
+const grupoB = [inglaterra, iran, estadosUnidos, gales];
+
+//GRUPO C - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const argentina = new Equipo("arg", "Argentina", "C", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Argentina-Bandera-America.png");
+const arabiaSaudita = new Equipo("sau", "Arabia","C", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Arabia-Saudita-Bandera-Asia.png");
+const mexico = new Equipo("mex", "Mexico","C","https://www.mundoprimaria.com/wp-content/uploads/2020/04/M%C3%A9xico-Bandera-America.png");
+const polonia = new Equipo("pol", "Polonia","C",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Polonia-Bandera-Europa.png");
+
+const grupoC = [argentina, arabiaSaudita, mexico, polonia];
+
+
+
+//GRUPO D - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO. FALTA JUGARSE UN REPECHAJE.
+const francia = new Equipo("fra", "Francia","D", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Francia-Bandera-Europa.png");
+const dinamarca = new Equipo("din", "Dinamarca","D", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Dinamarca-Bandera-Europa.png");
+const tunez = new Equipo("tun", "Tunez","D", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/T%C3%BAnez-Bandera-Africa.png");
+const australia = new Equipo("aus", "Australia","D",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Australia-Bandera-Ocean%C3%ADa.png")
+
+const grupoD = [francia, dinamarca, tunez, australia];
+
+//GRUPO E - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO. FALTA JUGARSE UN REPECHAJE.
+const españa = new Equipo("esp", "España", "E", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Espa%C3%B1a-Bandera-Europa.png");
+const alemania = new Equipo("ale", "Alemania","E",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Alemania-Bandera-Europa.png");
+const japon = new Equipo("jap", "Japon", "E", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Jap%C3%B3n-Bandera-Asia.png");
+const costaRica = new Equipo("ric", "C. Rica", "E", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Costa-Rica-Bandera-America.png");
+
+const grupoE = [españa, alemania, japon, costaRica];
+
+//GRUPO F - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const belgica = new Equipo("bel", "Belgica", "F", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/B%C3%A9lgica-Bandera-Europa.png");
+const canada = new Equipo("can", "Canada","F", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Canad%C3%A1-Bandera-America.png");
+const marruecos = new Equipo("mar", "Marruecos","F",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Marruecos-Bandera-Africa.png");
+const croacia = new Equipo("croacia", "Croacia","F",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Croacia-Bandera-Europa.png");
+
+const grupoF = [belgica, canada, marruecos, croacia];
+
+//GRUPO G - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const brasil = new Equipo("bra", "Brasil", "G", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Brasil-Bandera-America.png");
+const serbia = new Equipo("ser", "Serbia","G", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Serbia-Bandera-Europa.png");
+const suiza = new Equipo("sui", "Suiza","G",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Suiza-Bandera-Europa.png");
+const camerun = new Equipo("cam", "Camerun", "G","https://www.mundoprimaria.com/wp-content/uploads/2020/04/Camer%C3%BAn-Bandera-Africa.png");
+
+const grupoG = [brasil, serbia, suiza, camerun];
+
+//GRUPO H - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO
+const portugal = new Equipo("por", "Portugal", "H",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Portugal-Bandera-Europa.png");
+const ghana = new Equipo("gha", "Ghana", "H", "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Ghana-Bandera-Africa.png");
+const uruguay = new Equipo("uru", "Uruguay", "H","https://www.mundoprimaria.com/wp-content/uploads/2020/04/Uruguay-Bandera-America.png");
+const corea = new Equipo("cor", "Corea","H",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Corea-del-Sur-Bandera-Asia.png");
+
+const grupoH = [portugal, ghana, uruguay, corea];
+
+
+//CREO UN ARRAY CON TODOS LOS ARRAY DE CADA GRUPO PARA PODER ACCEDER A LOS 32 OBJETOS EQUIPO
+
+ const equiposClasificados = [...grupoA, ...grupoB, ...grupoC, ...grupoD, ...grupoE, ...grupoF, ...grupoG, ...grupoH] 
+
+/* OCTAVOS DE FINAL */
+ const cruce1 = [];
+ const cruce2 = [];
+ const cruce3 = [];
+ const cruce4 = [];
+ const clasificadosOctavos = []
+
+ 
+ localStorage.setItem('grupoB', grupoB)
+ localStorage.setItem('grupoC', grupoC)
+ localStorage.setItem('grupoD', grupoD)
+ localStorage.setItem('grupoE', grupoE)
+ localStorage.setItem('grupoF', grupoF)
+ localStorage.setItem('grupoG', grupoG)
+ localStorage.setItem('grupoH', grupoH)
+
+
+let grupoAJSON = JSON.stringify(grupoA)
+let grupoBJSON = JSON.stringify(grupoB)
+let grupoCJSON = JSON.stringify(grupoC)
+let grupoDJSON = JSON.stringify(grupoD)
+let grupoEJSON = JSON.stringify(grupoE)
+let grupoFJSON = JSON.stringify(grupoF)
+let grupoGJSON = JSON.stringify(grupoG)
+let grupoHJSON = JSON.stringify(grupoH)
+
+localStorage.setItem('grupoA', grupoAJSON)
+localStorage.setItem('grupoB', grupoBJSON)
+localStorage.setItem('grupoC', grupoCJSON)
+localStorage.setItem('grupoD', grupoDJSON)
+localStorage.setItem('grupoE', grupoEJSON)
+localStorage.setItem('grupoF', grupoFJSON)
+localStorage.setItem('grupoG', grupoGJSON)
+localStorage.setItem('grupoH', grupoHJSON)
+
+let grupoAfromStorage = localStorage.getItem('grupoA')
+let grupoBfromStorage = localStorage.getItem('grupoB')
+let grupoCfromStorage = localStorage.getItem('grupoC')
+let grupoDfromStorage = localStorage.getItem('grupoD')
+let grupoEfromStorage = localStorage.getItem('grupoE')
+let grupoFfromStorage = localStorage.getItem('grupoF')
+let grupoGfromStorage = localStorage.getItem('grupoG')
+let grupoHfromStorage = localStorage.getItem('grupoH')
+
+
+
+let grupoAback = JSON.parse(grupoAfromStorage)
+let grupoBback = JSON.parse(grupoBfromStorage)
+let grupoCback = JSON.parse(grupoCfromStorage)
+let grupoDback = JSON.parse(grupoDfromStorage)
+let grupoEback = JSON.parse(grupoEfromStorage)
+let grupoFback = JSON.parse(grupoFfromStorage)
+let grupoGback = JSON.parse(grupoGfromStorage)
+let grupoHback = JSON.parse(grupoHfromStorage)
+
+console.log(grupoAback, grupoBback,grupoCback,grupoDback,grupoEback,grupoFback,grupoGback,grupoHback,) 
+
 /*  NUEVA VERSIÓN DEL PROYECTO FIXTURE MUNDIAL CATAR 2022
 
  EL USUARIO SELECCIONARÁ DOS EQUIPOS POR GRUPO (LOS DOS CLASIFICADOS DE LA FASE DE GRUPOS) Y AUTOMÁTICAMENTE
@@ -32,7 +172,7 @@ function mostrarEquipos(grupo, funcionDinamica) {
          <div class="div">
          <div id="equipo">
             <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')"><h6>${Equipo.nombre}</h6></button>
+            <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')"><p>${Equipo.nombre}</p></button>
          </div>`
         i++;
     }
@@ -66,13 +206,15 @@ EL MISMO EQUIPO.
 
 MISMA LOGICA APLICO AL FILTER PARA QUE EL ALGORITMO SEPA CUANDO CORTAR EL PUSH EN LOS ARRAYS LOCALES.
 
+CON LA VARIABLE LOCAL AJUSTO ELECCION ME ASEGURO QUE NO PUEDAN ELEGIR EN DESORDEN LOS GRUPOS PARA QUE LOS CRUCES QUEDEN ORDENADOS CORRECTAMENTE
+
 */
 
 
 function primerCruce(id) {
     let equiposGrupoA = [];
     let equiposGrupoB = [];
-    let prueba = cruce1.filter(actual => actual.grupo == "A")
+    let ajustoEleccion = cruce1.filter(actual => actual.grupo == "A")
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce1.includes(equipo)) {
             console.log(cruce1)
@@ -83,7 +225,7 @@ function primerCruce(id) {
                 }                
 
 
-                if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B" && prueba.length>1) {
+                if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B" && ajustoEleccion.length>1) {
                     equiposGrupoB.push(equipo)
                 } 
             }
@@ -121,6 +263,7 @@ console.log(JSON.parse(localStorage.getItem('cruce1')))
 function segundoCruce(id) {
     let equiposGrupoC = [];
     let equiposGrupoD = [];
+    let ajustoEleccion = cruce2.filter(actual => actual.grupo == "C")
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce2.includes(equipo)) {
             console.log(cruce2)
@@ -130,7 +273,7 @@ function segundoCruce(id) {
                     equiposGrupoC.push(equipo)
 
                 }
-                if (cruce2.filter(actual => actual.grupo == 'D').length < 2 && equipo.grupo == "D") {
+                if (cruce2.filter(actual => actual.grupo == 'D').length < 2 && equipo.grupo == "D" && ajustoEleccion.length>1) {
                     equiposGrupoD.push(equipo)
                 }
 
@@ -166,6 +309,7 @@ console.log(JSON.parse(localStorage.getItem('cruce2')))
 function tercerCruce(id) {
     let equiposGrupoE = [];
     let equiposGrupoF = [];
+    let ajustoEleccion = cruce3.filter(actual => actual.grupo == "E")
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce3.includes(equipo)) {
             console.log(cruce3)
@@ -175,7 +319,7 @@ function tercerCruce(id) {
                     equiposGrupoE.push(equipo)
 
                 }
-                if (cruce3.filter(actual => actual.grupo == 'F').length < 2 && equipo.grupo == "F") {
+                if (cruce3.filter(actual => actual.grupo == 'F').length < 2 && equipo.grupo == "F"  && ajustoEleccion.length>1) {
                     equiposGrupoF.push(equipo)
                 }
 
@@ -209,6 +353,7 @@ console.log(JSON.parse(localStorage.getItem('cruce3')))
 function cuartoCruce(id) {
     let equiposGrupoG = [];
     let equiposGrupoH = [];
+    let ajustoEleccion = cruce4.filter(actual => actual.grupo == "G")
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce4.includes(equipo)) {
             console.log(cruce4)
@@ -218,7 +363,7 @@ function cuartoCruce(id) {
                     equiposGrupoG.push(equipo)
 
                 }
-                if (cruce4.filter(actual => actual.grupo == 'H').length < 2 && equipo.grupo == "H") {
+                if (cruce4.filter(actual => actual.grupo == 'H').length < 2 && equipo.grupo == "H" && ajustoEleccion.length>1) {
                     equiposGrupoH.push(equipo)
                 }
 
@@ -301,30 +446,30 @@ const segundoB = document.getElementById(`2${ubicacion[3]}`)
 
     primeroA.innerHTML = `          
     <div class="div">
-    <div id="equipo">
+    <div id="equipo" style="border: none">
     <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')">${cruce[0]['nombre']}</button>
+    <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')"><p>${cruce[0]['nombre']}</p></button>
     </div>`
 
     segundoA.innerHTML = `          
     <div class="div">
     <div id="equipo">
     <img src="${cruce[1]['bandera']}" class="img-thumbnail" alt="${cruce[1]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[1]['id']}')">${cruce[1]['nombre']}</button>
+    <button type="button" class="btn btn-light" onclick="('${cruce[1]['id']}')"><p>${cruce[1]['nombre']}</p></button>
     </div>`
 
     primeroB.innerHTML = `          
     <div class="div">
     <div id="equipo">
     <img src="${cruce[2]['bandera']}" class="img-thumbnail" alt="${cruce[2]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[2]['id']}')">${cruce[2]['nombre']}</button>
+    <button type="button" class="btn btn-light" onclick="('${cruce[2]['id']}')"><p>${cruce[2]['nombre']}</p></button>
     </div>`
 
     segundoB.innerHTML = `          
     <div class="div">
     <div id="equipo">
     <img src="${cruce[3]['bandera']}" class="img-thumbnail" alt="${cruce[3]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[3]['id']}')">${cruce[3]['nombre']}</button>
+    <button type="button" class="btn btn-light" onclick="('${cruce[3]['id']}')"><p>${cruce[3]['nombre']}</p></button>
     </div>`  
 
 

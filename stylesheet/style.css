@@ -7,6 +7,7 @@
 
 body {
     background: /* #8a1538; */radial-gradient(circle, rgba(173,0,52,1) 0%, rgba(33,10,10,1) 100%);
+   
 }
 
 /* FIN GENERALES */
@@ -41,12 +42,13 @@ h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+main{
+    display: flex;
+}
+
 #fixture {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-wrap: wrap;    
     margin-top: 2rem;    
 }
 
@@ -62,14 +64,29 @@ h1{
     margin-left: 2rem;
     margin-right: 2rem;
     background-color: rgba(0, 0, 0, 0.348);
+    max-width: 500px;
 }
 
-@media screen and (max-width: 759px) {
+@media screen and (max-width: 898px) {
 .grupo{
     width: 8rem !important;
   }
+
+  .primero {
   
+    height: 50px !important;
+    width: 70px !important;
+  }
+  
+  img{
+      width: 8rem;
+   align-items: flex-start;
+  }
+ 
 }
+
+
+
 
 #equipo{
     display: flex;
@@ -83,20 +100,26 @@ img{
     margin-left: 1rem;
     margin-right: 1rem;
 }
-
 #copa{
     width: 15rem;
 }
 
 button{
-    width: 7rem;
+    width: 4rem;
+    height: 2rem;
     margin-top: 10px;
 }
 
 button:hover {
       background-color: rgb(200, 165, 165) !important;
       transform: scale(1.1) translateY(1px);
-    }         
+    }  
+    
+    p{
+        font-size: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
 
 
 
@@ -104,44 +127,21 @@ button:hover {
         display: flex;       
         align-items: center;
         justify-content: center;
+        margin-top: 9rem;
+        margin-right: 2rem;
        
 
     }
 
        
     .primero {
-        border-top: 4px solid #000000;
-        border-right: 4px solid #000000;
-        border-bottom: 4px solid #000000;
-        border-left: 4px solid #000000;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        height: 130px;
-        width: 150px;
-    }
-/*     
-    #primer-cuadro{
-        margin-top: 10rem;
-        margin-right: 70rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+        border-radius: 1rem;
+        margin-top: 4rem;    
+        height: 110px;
+        width: 100px;
     }
 
-    #segudo-cuadro{      
-        margin-top: 10rem;        
-    }
-    
-    .parteB{
-        margin-top: 10rem;
-    }
-
-  
-
-    #cuartos-A{
-        margin-left: 15rem;
-    }
-
-    
- */
-   
 
 .octavos-uno, .cuartos-uno, .semifinal-uno{
     margin-right: 3rem;
