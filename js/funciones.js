@@ -422,20 +422,6 @@ function mostrarEquiposOctavos(cruce) {
 
 }
 
-// const primeroA = document.getElementById('1A')
-// const segundoA = document.getElementById('2A')
-/* const primeroC = document.getElementById('1C')
-const segundoC = document.getElementById('2C')
-const primeroD = document.getElementById('1D')
-const segundoD = document.getElementById('2D')
-const primeroE = document.getElementById('1E')
-const segundoE = document.getElementById('2E')
-const primeroF = document.getElementById('1F')
-const segundoF = document.getElementById('2F')
-const primeroG = document.getElementById('1G')
-const segundoG = document.getElementById('2G')
-const primeroH = document.getElementById('1H')
-const segundoH = document.getElementById('2H') */
 
 function cruzarEquipo(cruce,ubicacion){
 const primeroA = document.getElementById(`1${ubicacion[0]}`);
@@ -446,7 +432,7 @@ const segundoB = document.getElementById(`2${ubicacion[3]}`)
 
     primeroA.innerHTML = `          
     <div class="div">
-    <div id="equipo" style="border: none">
+    <div id="equipo" >
     <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')"><p>${cruce[0]['nombre']}</p></button>
     </div>`
@@ -471,7 +457,6 @@ const segundoB = document.getElementById(`2${ubicacion[3]}`)
     <img src="${cruce[3]['bandera']}" class="img-thumbnail" alt="${cruce[3]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="('${cruce[3]['id']}')"><p>${cruce[3]['nombre']}</p></button>
     </div>`  
-
 
    
 }
