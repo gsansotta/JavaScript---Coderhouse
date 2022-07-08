@@ -26,12 +26,13 @@ function mostrarEquipos(grupo, funcionDinamica) {
     var i = 0;
     for (const Equipo of grupo) {
 
+
         grupos.innerHTML +=
-            `          
+            `              
          <div class="div">
          <div id="equipo">
             <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')">${Equipo.nombre}</button>
+            <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')"><h6>${Equipo.nombre}</h6></button>
          </div>`
         i++;
     }
@@ -71,6 +72,7 @@ MISMA LOGICA APLICO AL FILTER PARA QUE EL ALGORITMO SEPA CUANDO CORTAR EL PUSH E
 function primerCruce(id) {
     let equiposGrupoA = [];
     let equiposGrupoB = [];
+    let prueba = cruce1.filter(actual => actual.grupo == "A")
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce1.includes(equipo)) {
             console.log(cruce1)
@@ -78,13 +80,10 @@ function primerCruce(id) {
 
                 if (cruce1.filter(actual => actual.grupo == 'A').length < 2 && equipo.grupo == "A") {
                     equiposGrupoA.push(equipo) 
-
-                } 
-                
+                }                
 
 
-
-                if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B") {
+                if (cruce1.filter(actual => actual.grupo == 'B').length < 2 && equipo.grupo == "B" && prueba.length>1) {
                     equiposGrupoB.push(equipo)
                 } 
             }
@@ -98,8 +97,10 @@ function primerCruce(id) {
     cruce1.push(...equiposGrupoB)
     localStorage.setItem('cruce1', JSON.stringify(cruce1))
     
-    mostrarEquiposOctavos(equiposGrupoA)
-    mostrarEquiposOctavos(equiposGrupoB)
+    /* mostrarEquiposOctavos(equiposGrupoA)
+    mostrarEquiposOctavos(equiposGrupoB) */
+    cruzarEquipo(cruce1,["A","A","B","B"])
+    
 }
 
 const recuperoCruceUno = () => {
@@ -142,8 +143,9 @@ function segundoCruce(id) {
     cruce2.push(...equiposGrupoD)
     localStorage.setItem('cruce2', JSON.stringify(cruce2))
 
-    mostrarEquiposOctavos(equiposGrupoC)
-    mostrarEquiposOctavos(equiposGrupoD)
+   /*  mostrarEquiposOctavos(equiposGrupoC)
+    mostrarEquiposOctavos(equiposGrupoD) */
+    cruzarEquipo(cruce2,["C","C","D","D"])
 }
 const recuperoCruceDos = () => {
     let cruceDosRecuperado = JSON.parse(localStorage.getItem("cruce2"));
@@ -186,8 +188,9 @@ function tercerCruce(id) {
     cruce3.push(...equiposGrupoF)
     localStorage.setItem('cruce3', JSON.stringify(cruce3))
 
-    mostrarEquiposOctavos(equiposGrupoE)
-    mostrarEquiposOctavos(equiposGrupoF)
+   /*  mostrarEquiposOctavos(equiposGrupoE)
+    mostrarEquiposOctavos(equiposGrupoF) */
+    cruzarEquipo(cruce3,["E","E","F","F"])
 }
 const recuperoCruceTres = () => {
     let cruceTresRecuperado = JSON.parse(localStorage.getItem("cruce3"));
@@ -228,8 +231,9 @@ function cuartoCruce(id) {
     cruce4.push(...equiposGrupoH)
     localStorage.setItem('cruce4', JSON.stringify(cruce4))
 
-    mostrarEquiposOctavos(equiposGrupoG)
-    mostrarEquiposOctavos(equiposGrupoH)
+  /*   mostrarEquiposOctavos(equiposGrupoG)
+    mostrarEquiposOctavos(equiposGrupoH) */
+    cruzarEquipo(cruce4,["G","G","H","H"])
 }
 const recuperoCruceCuatro = () => {
     let cruceCuatroRecuperado = JSON.parse(localStorage.getItem("cruce4"));
@@ -243,7 +247,7 @@ console.log(JSON.parse(localStorage.getItem('cruce4')))
 
 
 
-
+/* FUNCION PARA IMPRIMIR EN PANTALLA MEDIANTE DOM LOS CRUCES DE OCTAVOS EN FUNCION DE LA SELECCION DEL USUARIO */
 
 const crucesOctavos = document.getElementById('octavos')
 
@@ -273,7 +277,57 @@ function mostrarEquiposOctavos(cruce) {
 
 }
 
+// const primeroA = document.getElementById('1A')
+// const segundoA = document.getElementById('2A')
+/* const primeroC = document.getElementById('1C')
+const segundoC = document.getElementById('2C')
+const primeroD = document.getElementById('1D')
+const segundoD = document.getElementById('2D')
+const primeroE = document.getElementById('1E')
+const segundoE = document.getElementById('2E')
+const primeroF = document.getElementById('1F')
+const segundoF = document.getElementById('2F')
+const primeroG = document.getElementById('1G')
+const segundoG = document.getElementById('2G')
+const primeroH = document.getElementById('1H')
+const segundoH = document.getElementById('2H') */
 
-console.log(clasificadosOctavos)
+function cruzarEquipo(cruce,ubicacion){
+const primeroA = document.getElementById(`1${ubicacion[0]}`);
+const segundoA = document.getElementById(`2${ubicacion[1]}`);
+const primeroB = document.getElementById(`1${ubicacion[2]}`)
+const segundoB = document.getElementById(`2${ubicacion[3]}`)
 
+
+    primeroA.innerHTML = `          
+    <div class="div">
+    <div id="equipo">
+    <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
+    <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')">${cruce[0]['nombre']}</button>
+    </div>`
+
+    segundoA.innerHTML = `          
+    <div class="div">
+    <div id="equipo">
+    <img src="${cruce[1]['bandera']}" class="img-thumbnail" alt="${cruce[1]['nombre']}-error" >        
+    <button type="button" class="btn btn-light" onclick="('${cruce[1]['id']}')">${cruce[1]['nombre']}</button>
+    </div>`
+
+    primeroB.innerHTML = `          
+    <div class="div">
+    <div id="equipo">
+    <img src="${cruce[2]['bandera']}" class="img-thumbnail" alt="${cruce[2]['nombre']}-error" >        
+    <button type="button" class="btn btn-light" onclick="('${cruce[2]['id']}')">${cruce[2]['nombre']}</button>
+    </div>`
+
+    segundoB.innerHTML = `          
+    <div class="div">
+    <div id="equipo">
+    <img src="${cruce[3]['bandera']}" class="img-thumbnail" alt="${cruce[3]['nombre']}-error" >        
+    <button type="button" class="btn btn-light" onclick="('${cruce[3]['id']}')">${cruce[3]['nombre']}</button>
+    </div>`  
+
+
+   
+}
 

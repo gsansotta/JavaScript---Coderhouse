@@ -34,7 +34,12 @@ header h3{
 
 /* COMIENZO SECCION PRINCIPAL */
 
-
+h1{
+    text-align: center;
+    margin-top: 2rem;
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 #fixture {
     display: flex;
@@ -83,4 +88,52 @@ button{
     margin-top: 10px;
 }
 
+button:hover {
+      background-color: rgb(200, 165, 165) !important;
+      transform: scale(1.1) translateY(1px);
+    }         
+
+
+
+    .cuadro-octavos{
+        display: flex;       
+        align-items: center;
+        justify-content: center;
+
+    }
+
+       
+    .primero {
+        border-top: 4px solid #000000;
+        border-right: 4px solid #000000;
+        border-bottom: 4px solid #000000;
+        border-left: 4px solid #000000;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 150px;
+        width: 200px;
+    }
+    
+    #primer-cuadro{
+        margin-top: 10rem;
+        margin-right: 70rem;
+    }
+
+    #segudo-cuadro{      
+        margin-top: 10rem;        
+    }
+    
+    .parteB{
+        margin-top: 10rem;
+    }
+
+  
+
+    #cuartos-A{
+        margin-left: 15rem;
+    }
+
+    
+
+   
 
