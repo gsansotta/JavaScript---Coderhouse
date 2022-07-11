@@ -67,7 +67,7 @@ main{
     max-width: 500px;
 }
 
-@media screen and (max-width: 898px) {
+ @media screen and (max-width: 898px) {
 .grupo{
     width: 8rem !important;
   }
@@ -83,7 +83,7 @@ main{
    align-items: flex-start;   
   }
  
-}
+} 
 
 
 
@@ -154,5 +154,4 @@ button:hover {
 #acomodo-cuartos{
     margin-bottom: 10rem;
 }
-
 
