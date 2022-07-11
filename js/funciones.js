@@ -19,16 +19,20 @@ LUEGO PODER ARMAR CORRECTAMENTE LOS CRUCES DE OCTAVOS DE FINAL SEGUN MI ESCTRUCT
 */
 const cruces = document.getElementById('fixture')
 
-function mostrarEquipos(grupo, funcionDinamica) {
+function mostrarEquipos(grupo, funcionDinamica, letraGrupo) {
 
     let grupos = document.createElement('section')
     grupos.className = 'grupo'
     var i = 0;
+
+    grupos.innerHTML =`<h1 id ="letra-grupo">${letraGrupo}</h1> `;
+
     for (const Equipo of grupo) {
 
 
         grupos.innerHTML +=
-            `              
+            ` 
+            <h1> </h1>            
          <div class="div">
          <div id="equipo">
             <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
@@ -42,14 +46,14 @@ function mostrarEquipos(grupo, funcionDinamica) {
 
 
 
-mostrarEquipos(grupoA, "primerCruce")
-mostrarEquipos(grupoB, "primerCruce")
-mostrarEquipos(grupoC, "segundoCruce")
-mostrarEquipos(grupoD, "segundoCruce")
-mostrarEquipos(grupoE, "tercerCruce")
-mostrarEquipos(grupoF, "tercerCruce")
-mostrarEquipos(grupoG, "cuartoCruce")
-mostrarEquipos(grupoH, "cuartoCruce")
+mostrarEquipos(grupoA, "primerCruce", "A")
+mostrarEquipos(grupoB, "primerCruce", "B")
+mostrarEquipos(grupoC, "segundoCruce", "C")
+mostrarEquipos(grupoD, "segundoCruce", "D")
+mostrarEquipos(grupoE, "tercerCruce", "E")
+mostrarEquipos(grupoF, "tercerCruce", "F")
+mostrarEquipos(grupoG, "cuartoCruce", "G")
+mostrarEquipos(grupoH, "cuartoCruce", "H")
 
 
 
@@ -83,21 +87,28 @@ function primerCruce(id) {
 
                 if (ajustoEleccionA.length < 2 && equipo.grupo == "A") {
                     equiposGrupoA.push(equipo)
+
                 }
 
                 if (ajustoEleccionB.length < 2 && equipo.grupo == "B" && ajustoEleccionA.length > 1) {
-                    equiposGrupoB.push(equipo)                   
-                   
+                    equiposGrupoB.push(equipo)
+
                 }
 
-                 if(equipo.grupo == "B" && ajustoEleccionA.length < 2)  {
+
+                if (equipo.grupo == "B" && ajustoEleccionA.length < 2) {
                     Swal.fire({
                         title: 'Primero debes elegir los dos equipos del grupo A',
-                        icon: 'error',
+                        background: ' #8a1538',
+                        color: 'white',
+                        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+                        icon:'warning',
+                        imageWidth: 600,
+                        imageHeight: 200,                        
                         confirmButtonText: 'OK'
                     })
                 }
-                
+
             }
 
         }
@@ -106,16 +117,17 @@ function primerCruce(id) {
 
 
 
-/* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
-PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
-cruce1.push(...equiposGrupoA)
-cruce1.push(...equiposGrupoB)
-localStorage.setItem('cruce1', JSON.stringify(cruce1))
+    /* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
+    PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
+    cruce1.push(...equiposGrupoA)
+    cruce1.push(...equiposGrupoB)
+    localStorage.setItem('cruce1', JSON.stringify(cruce1))
 
-/* mostrarEquiposOctavos(equiposGrupoA)
-mostrarEquiposOctavos(equiposGrupoB) */
-cruzarEquipo(cruce1, ["A", "A", "B", "B"])
+    /* mostrarEquiposOctavos(equiposGrupoA)
+    mostrarEquiposOctavos(equiposGrupoB) */
+    cruzarEquipo(cruce1, ["A", "A", "B", "B"])
 }
+
 
 
 const recuperoCruceUno = () => {
@@ -147,18 +159,23 @@ function segundoCruce(id) {
                     equiposGrupoC.push(equipo)
 
                 }
-                if (ajustoEleccionD .length < 2 && equipo.grupo == "D" && ajustoEleccionC.length > 1) {
+                if (ajustoEleccionD.length < 2 && equipo.grupo == "D" && ajustoEleccionC.length > 1) {
                     equiposGrupoD.push(equipo)
                 }
 
-                if(equipo.grupo == "D" && ajustoEleccionC.length < 2)  {
+                if (equipo.grupo == "D" && ajustoEleccionC.length < 2) {
                     Swal.fire({
-                        title: 'Primero debes elegir los dos equipos del grupo C',
-                        icon: 'error',
+                        title: 'Primero debes elegir los dos equipos del grupo C',                       
+                        background: ' #8a1538',
+                        color: 'white',
+                        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+                        icon:'warning',
+                        imageWidth: 600,
+                        imageHeight: 200,                        
                         confirmButtonText: 'OK'
                     })
                 }
-                
+
 
             }
         }
@@ -207,10 +224,15 @@ function tercerCruce(id) {
                     equiposGrupoF.push(equipo)
                 }
 
-                if(equipo.grupo == "F" && ajustoEleccionE.length < 2)  {
+                if (equipo.grupo == "F" && ajustoEleccionE.length < 2) {
                     Swal.fire({
                         title: 'Primero debes elegir los dos equipos del grupo E',
-                        icon: 'error',
+                        background: ' #8a1538',
+                        color: 'white',
+                        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+                        icon:'warning',
+                        imageWidth: 600,
+                        imageHeight: 200,                        
                         confirmButtonText: 'OK'
                     })
                 }
@@ -260,10 +282,15 @@ function cuartoCruce(id) {
                     equiposGrupoH.push(equipo)
                 }
 
-                if(equipo.grupo == "H" && ajustoEleccionG.length < 2)  {
+                if (equipo.grupo == "H" && ajustoEleccionG.length < 2) {
                     Swal.fire({
                         title: 'Primero debes elegir los dos equipos del grupo G',
-                        icon: 'error',
+                        background: ' #8a1538',
+                        color: 'white',
+                        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+                        icon:'warning',
+                        imageWidth: 600,
+                        imageHeight: 200,                        
                         confirmButtonText: 'OK'
                     })
                 }
@@ -308,6 +335,27 @@ function cruzarEquipo(cruce, ubicacion) {
     <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')"><p>${cruce[0]['nombre']}</p></button>
     </div>`
+    /* btn = document.getElementsByTagName("button")
+    btn.addEventListener('click', () => {
+   
+        Swal.fire({
+            title: 'Está seguro de eliminar el producto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, seguro',
+            cancelButtonText: 'No, no quiero'
+        }).then((result) => {
+    
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Borrado!',
+                    icon: 'success',
+                    text: 'El archivo ha sido borrado'
+                })
+            }
+        })
+    }) */
+
 
     segundoA.innerHTML = `          
     <div class="div">

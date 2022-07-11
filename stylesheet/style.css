@@ -6,8 +6,10 @@
 }
 
 body {
-    background: /* #8a1538; */radial-gradient(circle, rgba(173,0,52,1) 0%, rgba(33,10,10,1) 100%);
-   
+    background:
+        /* #8a1538; */
+        radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
+
 }
 
 /* FIN GENERALES */
@@ -20,36 +22,37 @@ body {
     margin-left: 1rem;
 }
 
-#logo-fifa{
+#logo-fifa {
     width: 50px;
     margin-right: 2rem;
 }
 
-header h3{
+header h3 {
     font-size: 2vw;
     color: aliceblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 /* FIN HEADER */
 
 
 /* COMIENZO SECCION PRINCIPAL */
 
-h1{
+h1 {
     text-align: center;
     margin-top: 2rem;
     color: aliceblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-main{
+main {
     display: flex;
 }
 
 #fixture {
     display: flex;
-    flex-wrap: wrap;    
-    margin-top: 2rem;    
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 
@@ -59,99 +62,109 @@ main{
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-top: 2rem;    
+    margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
     max-width: 500px;
 }
 
- @media screen and (max-width: 898px) {
-.grupo{
-    width: 8rem !important;
-  }
+@media screen and (max-width: 898px) {
+    .grupo {
+        width: 8rem !important;
+    }
 
-  .primero {
-  
-    height: 50px !important;
-    width: 70px !important;
-  }
-  
-  img{
-   width: 8rem;
-   align-items: flex-start;   
-  }
- 
-} 
+    .primero {
 
+        height: 50px !important;
+        width: 70px !important;
+    }
 
+    img {
+        width: 8rem;
+        align-items: flex-start;
+    }
+
+}
 
 
-#equipo{
+#letra-grupo {
+    font-size: 4rem;
+    margin-right: 1rem;
+
+}
+
+#equipo {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-img{
+img {
     width: 8rem;
     margin-left: 1rem;
     margin-right: 1rem;
 }
-#copa{
+
+#copa {
     width: 15rem;
 }
 
-button{
+button {
     width: 4rem;
     height: 2rem;
     margin-top: 10px;
 }
 
 button:hover {
-      background-color: rgb(200, 165, 165) !important;
-      transform: scale(1.1) translateY(1px);
-    }  
-    
-    p{
-        font-size: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
+    background-color: rgb(200, 165, 165) !important;
+    transform: scale(1.1) translateY(1px);
+}
+
+p {
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+}
 
 
 
-    .cruces-interactivos{
-        display: flex;       
-        align-items: center;
-        justify-content: center;
-        margin-top: 9rem;
-        margin-right: 2rem;
-       
+.cruces-interactivos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9rem;
+    margin-right: 2rem;
 
-    }
+}
 
-       
-    .primero {
-        box-shadow: 2px 2px 2px rgba(0,0,0,.4);
-        border-radius: 1rem;
-        margin-top: 4rem;    
-        height: 110px;
-        width: 100px;
-    }
+.cruces-interactivos h2{
+color: rgb(143, 73, 73);
+}
+
+.primero {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    border-radius: 1rem;
+    margin-top: 4rem;
+    height: 110px;
+    width: 100px;
+}
 
 
-.octavos-uno, .cuartos-uno, .semifinal-uno{
+.octavos-uno,
+.cuartos-uno,
+.semifinal-uno {
     margin-right: 3rem;
 }
 
-.octavos-dos, .cuartos-dos, .semifinal-dos{
+.octavos-dos,
+.cuartos-dos,
+.semifinal-dos {
     margin-left: 3rem;
 }
 
-#acomodo-cuartos{
+#acomodo-cuartos {
     margin-bottom: 10rem;
 }
-
