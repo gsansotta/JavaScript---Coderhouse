@@ -34,8 +34,7 @@ function mostrarEquipos(grupo, funcionDinamica, letraGrupo) {
 
         grupos.innerHTML +=
             `         
-         <div data-aos="fade-down" class="div">
-         <div class="equipo" id="${Equipo.id}">
+            <div class="equipo" id="${Equipo.id}">
             <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')"><p>${Equipo.nombre}</p></button>
          </div>`
@@ -312,6 +311,7 @@ function cuartoCruce(id) {
     cruce4.push(...equiposGrupoH)
     localStorage.setItem('cruce4', JSON.stringify(cruce4))   
     cruzarEquipo(cruce4, ["G", "G", "H", "H"])
+    
     if(cruce4.length == 4){
         let ocultoGrupos = document.getElementById('fixture')
        ocultoGrupos.style.display = 'none'; 

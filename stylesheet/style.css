@@ -6,11 +6,18 @@
 }
 
 body {
+    /* min-height: 100vh; */
     background:
+    
         /* #8a1538; */
-        radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
+        radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);     
+          
 
 }
+@font-face {
+    font-family:  Qatar;
+    src: url(./font/Qatar2022Arabic-Bold.ttf);
+    }
 
 /* FIN GENERALES */
 
@@ -19,7 +26,8 @@ body {
 
 #logo-wcp {
     width: 50px;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
 }
 
 #logo-fifa {
@@ -28,9 +36,10 @@ body {
 }
 
 header h3 {
-    font-size: 2vw;
+    margin-top: 0.5rem;
+    font-size: 1.5vw;
     color: aliceblue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Qatar;
 }
 
 /* FIN HEADER */
@@ -39,15 +48,16 @@ header h3 {
 /* COMIENZO SECCION PRINCIPAL */
 
 h1 {
+    font-size: 1.3vw;
     text-align: center;
     margin-top: 2rem;
     color: aliceblue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Qatar;
 }
 
 main {
     display: flex;
-}
+} 
 
 #fixture {
     display: flex;
@@ -67,14 +77,21 @@ main {
     margin-left: 2rem;
     margin-right: 2rem;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    border-radius: 2rem;
     max-width: 500px;
 }
 
 @media screen and (max-width: 898px) {
-    .grupo {
-        width: 8rem !important;
+    main {
+        display: block;
+    } 
+
+    #fixture{
+        justify-content: center;
+        align-items: center;
     }
 
+    
     .primero {
 
         height: 50px !important;
@@ -86,11 +103,15 @@ main {
         align-items: flex-start;
     }
 
+    #letra-grupo{
+        font-size: 2rem;
+    }
+  
 }
 
 
 #letra-grupo {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-right: 1rem;
 
 }
@@ -102,19 +123,22 @@ main {
     text-align: center;
 }
 
-img {
-    width: 8rem;
+
+.img-thumbnail {
+    width: 4rem;
+    padding: 0.1rem !important;
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
 #copa {
-    width: 15rem;
+    width: 10rem;
+    margin-top: 4rem;
 }
 
 button {
-    width: 4rem;
-    height: 2rem;
+    width: 60px;
+    height: 25px;
     margin-top: 10px;
 }
 
@@ -124,7 +148,7 @@ button:hover {
 }
 
 p {
-    font-size: 10px;
+    font-size: 9px;
     text-align: center;
     font-weight: bold;
 }
@@ -134,7 +158,6 @@ p {
 .cruces-interactivos {
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-top: 9rem;
     margin-right: 2rem;
 
@@ -148,9 +171,9 @@ color: rgb(143, 73, 73);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
     border-radius: 1rem;
     margin-top: 4rem;
-    height: 110px;
-    width: 100px;
-}
+    height: 90px;
+    width: 80px;
+} 
 
 
 .octavos-uno,
@@ -168,3 +191,5 @@ color: rgb(143, 73, 73);
 #acomodo-cuartos {
     margin-bottom: 10rem;
 }
+
+
