@@ -82,6 +82,13 @@ main {
 }
 
 @media screen and (max-width: 898px) {
+    header h3{
+        font-size: 2.5vw;  
+    }
+    h1, h3{
+        font-size: 4vw;
+    }
+    
     main {
         display: block;
     } 
@@ -151,6 +158,7 @@ p {
     font-size: 9px;
     text-align: center;
     font-weight: bold;
+    font-family: Qatar;
 }
 
 
