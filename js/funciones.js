@@ -21,6 +21,7 @@ LUEGO PODER ARMAR CORRECTAMENTE LOS CRUCES DE OCTAVOS DE FINAL SEGUN MI ESCTRUCT
 
 const cruces = document.getElementById('fixture')
 
+
 function mostrarEquipos(grupo, funcionDinamica, letraGrupo) {
 
     let grupos = document.createElement('div')
@@ -28,12 +29,13 @@ function mostrarEquipos(grupo, funcionDinamica, letraGrupo) {
     var i = 0;
 
     grupos.innerHTML = `<h1 id ="letra-grupo">${letraGrupo}</h1> `;
-    
+
     for (const Equipo of grupo) {
-        
+
 
         grupos.innerHTML +=
-            `         
+            `    
+            <div data-aos="fade-right" class="div">     
             <div class="equipo" id="${Equipo.id}">
             <img src="${Equipo.bandera}" class="img-thumbnail" alt="${Equipo.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="${funcionDinamica}('${Equipo.id}')"><p>${Equipo.nombre}</p></button>
@@ -80,7 +82,7 @@ function primerCruce(id) {
     let equiposGrupoB = [];
     let ajustoEleccionA = cruce1.filter(actual => actual.grupo == "A")
     let ajustoEleccionB = cruce1.filter(actual => actual.grupo == 'B')
-    
+
     for (const equipo of equiposClasificados) {
         if (equipo.id == id && !cruce1.includes(equipo)) {
             console.log(cruce1)
@@ -90,7 +92,6 @@ function primerCruce(id) {
                 if (ajustoEleccionA.length < 2 && equipo.grupo == "A") {
                     equiposGrupoA.push(equipo)
                     ocultoEquipo.style.display = 'none';
-
                 }
 
                 if (ajustoEleccionB.length < 2 && equipo.grupo == "B" && ajustoEleccionA.length > 1) {
@@ -110,6 +111,7 @@ function primerCruce(id) {
                         imageWidth: 600,
                         imageHeight: 200,
                         confirmButtonText: 'OK'
+
                     })
                 }
 
@@ -125,8 +127,8 @@ function primerCruce(id) {
     PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
     cruce1.push(...equiposGrupoA)
     cruce1.push(...equiposGrupoB)
-    localStorage.setItem('cruce1', JSON.stringify(cruce1))  
-    cruzarEquipo(cruce1, ["A", "A", "B", "B"])    
+    localStorage.setItem('cruce1', JSON.stringify(cruce1))
+    cruzarEquipo(cruce1, ["A", "A", "B", "B"])
 }
 
 
@@ -155,7 +157,7 @@ function segundoCruce(id) {
         if (equipo.id == id && !cruce2.includes(equipo)) {
             console.log(cruce2)
             let ocultoEquipo = document.getElementById(equipo.id)
-            if (cruce2.length < 4) {              
+            if (cruce2.length < 4) {
 
                 if (ajustoEleccionC.length < 2 && equipo.grupo == "C") {
                     equiposGrupoC.push(equipo)
@@ -248,7 +250,7 @@ function tercerCruce(id) {
 
     cruce3.push(...equiposGrupoE)
     cruce3.push(...equiposGrupoF)
-    localStorage.setItem('cruce3', JSON.stringify(cruce3)) 
+    localStorage.setItem('cruce3', JSON.stringify(cruce3))
     cruzarEquipo(cruce3, ["E", "E", "F", "F"])
 }
 const recuperoCruceTres = () => {
@@ -300,26 +302,28 @@ function cuartoCruce(id) {
                 }
 
 
-                
-                
+
+
             }
         }
-        
-    }
-       
-    cruce4.push(...equiposGrupoG)
-    cruce4.push(...equiposGrupoH)
-    localStorage.setItem('cruce4', JSON.stringify(cruce4))   
-    cruzarEquipo(cruce4, ["G", "G", "H", "H"])
-    
-    if(cruce4.length == 4){
-        let ocultoGrupos = document.getElementById('fixture')
-       ocultoGrupos.style.display = 'none'; 
-       let acomodoCruces =  document.getElementById('main-general')
-       acomodoCruces.style.display = 'block'; 
+
     }
 
-    
+    cruce4.push(...equiposGrupoG)
+    cruce4.push(...equiposGrupoH)
+    localStorage.setItem('cruce4', JSON.stringify(cruce4))
+    cruzarEquipo(cruce4, ["G", "G", "H", "H"])
+
+    if (cruce4.length == 4) {
+        let ocultoGrupos = document.getElementById('fixture')
+        ocultoGrupos.style.display = 'none'
+        let acomodoMain = document.getElementById('main-general')
+        acomodoMain.style = "justify-content: center"
+        let acomodoCruces = document.getElementById('cruces-interactivos')
+        acomodoCruces.style = "margin-top: 0"
+    } 
+
+
 }
 
 const recuperoCruceCuatro = () => {
@@ -337,14 +341,14 @@ console.log(JSON.parse(localStorage.getItem('cruce4')))
 /* FUNCION PARA ARMAR DINAMICAMENTE LOS CRUCES DE OCTAVOS DE FINAL */
 
 function cruzarEquipo(cruce, ubicacion) {
-    
+
     const primeroA = document.getElementById(`1${ubicacion[0]}`);
     const segundoA = document.getElementById(`2${ubicacion[1]}`);
     const primeroB = document.getElementById(`1${ubicacion[2]}`)
     const segundoB = document.getElementById(`2${ubicacion[3]}`)
 
-   
-    primeroA.innerHTML =` 
+
+    primeroA.innerHTML = ` 
 
     
     <div class="team" id = "${cruce[0]['nombre']}">
@@ -373,9 +377,9 @@ function cruzarEquipo(cruce, ubicacion) {
     <button type="button" class="btn btn-light" onclick="cruceCuartos('${cruce[3]['id']}')"><p>${cruce[3]['nombre']}</p></button>
     </div>`
 
-  
+
 }
- 
+
 
 /*  function cruceCuartos(id) {
     
@@ -426,11 +430,11 @@ function cruzarEquipo(cruce, ubicacion) {
 
     /* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
     PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
- /*    cruce1.push(...equiposGrupoA)
-    cruce1.push(...equiposGrupoB)
-    localStorage.setItem('cruce1', JSON.stringify(cruce1)) */
+/*    cruce1.push(...equiposGrupoA)
+   cruce1.push(...equiposGrupoB)
+   localStorage.setItem('cruce1', JSON.stringify(cruce1)) */
 
-    /* mostrarEquiposOctavos(equiposGrupoA)
-    mostrarEquiposOctavos(equiposGrupoB) */
-    /* cruzarEquipo(cruce1, ["A", "A", "B", "B"])     */
+/* mostrarEquiposOctavos(equiposGrupoA)
+mostrarEquiposOctavos(equiposGrupoB) */
+/* cruzarEquipo(cruce1, ["A", "A", "B", "B"])     */
 /* } */

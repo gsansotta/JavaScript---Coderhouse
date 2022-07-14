@@ -140,3 +140,4 @@ let grupoGback = JSON.parse(grupoGfromStorage)
 let grupoHback = JSON.parse(grupoHfromStorage)
 
 console.log(grupoAback, grupoBback,grupoCback,grupoDback,grupoEback,grupoFback,grupoGback,grupoHback,) 
+

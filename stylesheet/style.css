@@ -6,17 +6,29 @@
 }
 
 body {
-    /* min-height: 100vh; */
-    background:
-    
-        /* #8a1538; */
-        radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);     
+  
+    background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);     
           
 
 }
 @font-face {
     font-family:  Qatar;
     src: url(./font/Qatar2022Arabic-Bold.ttf);
+    }
+
+    /* SWEET ALERT */
+    .swal2-container.swal2-center>.swal2-popup{
+        border-radius: 1rem;
+    }
+    .swal2-title{
+        font-family: Qatar;
+    }
+
+    .swal2-styled.swal2-confirm {
+        background-color: rgba(255, 255, 197, 0.603);
+        height: 60px;
+        width: 80px;
+        border-radius: 1rem;
     }
 
 /* FIN GENERALES */
@@ -163,7 +175,7 @@ p {
 
 
 
-.cruces-interactivos {
+#cruces-interactivos {
     display: flex;
     align-items: center;
     margin-top: 9rem;
@@ -171,7 +183,7 @@ p {
 
 }
 
-.cruces-interactivos h2{
+#cruces-interactivos h2{
 color: rgb(143, 73, 73);
 }
 
