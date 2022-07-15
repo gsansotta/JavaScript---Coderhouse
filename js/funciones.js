@@ -128,7 +128,7 @@ function primerCruce(id) {
     cruce1.push(...equiposGrupoA)
     cruce1.push(...equiposGrupoB)
     localStorage.setItem('cruce1', JSON.stringify(cruce1))
-    cruzarEquipo(cruce1, ["A", "A", "B", "B"])
+    cruzarEquipo(cruce1, ["A", "A", "B", "B"], "cuartos")
 }
 
 
@@ -191,7 +191,7 @@ function segundoCruce(id) {
     cruce2.push(...equiposGrupoC)
     cruce2.push(...equiposGrupoD)
     localStorage.setItem('cruce2', JSON.stringify(cruce2))
-    cruzarEquipo(cruce2, ["C", "C", "D", "D"])
+    cruzarEquipo(cruce2, ["C", "C", "D", "D"], "cuartos")
 }
 const recuperoCruceDos = () => {
     let cruceDosRecuperado = JSON.parse(localStorage.getItem("cruce2"));
@@ -251,7 +251,7 @@ function tercerCruce(id) {
     cruce3.push(...equiposGrupoE)
     cruce3.push(...equiposGrupoF)
     localStorage.setItem('cruce3', JSON.stringify(cruce3))
-    cruzarEquipo(cruce3, ["E", "E", "F", "F"])
+    cruzarEquipo(cruce3, ["E", "E", "F", "F"], "cuartos")
 }
 const recuperoCruceTres = () => {
     let cruceTresRecuperado = JSON.parse(localStorage.getItem("cruce3"));
@@ -312,7 +312,7 @@ function cuartoCruce(id) {
     cruce4.push(...equiposGrupoG)
     cruce4.push(...equiposGrupoH)
     localStorage.setItem('cruce4', JSON.stringify(cruce4))
-    cruzarEquipo(cruce4, ["G", "G", "H", "H"])
+    cruzarEquipo(cruce4, ["G", "G", "H", "H"], "cuartos")
 
     if (cruce4.length == 4) {
         let ocultoGrupos = document.getElementById('fixture')
@@ -321,7 +321,7 @@ function cuartoCruce(id) {
         acomodoMain.style = "justify-content: center"
         let acomodoCruces = document.getElementById('cruces-interactivos')
         acomodoCruces.style = "margin-top: 0"
-    } 
+    }
 
 
 }
@@ -340,7 +340,14 @@ console.log(JSON.parse(localStorage.getItem('cruce4')))
 
 /* FUNCION PARA ARMAR DINAMICAMENTE LOS CRUCES DE OCTAVOS DE FINAL */
 
-function cruzarEquipo(cruce, ubicacion) {
+function cruzarEquipo(cruce, ubicacion, instancia = "") {
+    let instanciasFinales = ""
+
+    if (instancia != "") {
+        if (instancia.includes("cuartos")) {
+            instanciasFinales = "creoCuartos"
+        }
+    }
 
     const primeroA = document.getElementById(`1${ubicacion[0]}`);
     const segundoA = document.getElementById(`2${ubicacion[1]}`);
@@ -353,88 +360,199 @@ function cruzarEquipo(cruce, ubicacion) {
     
     <div class="team" id = "${cruce[0]['nombre']}">
     <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[0]['id']}')"><p>${cruce[0]['nombre']}</p></button>   
+    <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[0]['id']}')"><p>${cruce[0]['nombre']}</p></button>   
     </div>  `
 
     segundoA.innerHTML = `          
    
     <div class="team">
     <img src="${cruce[1]['bandera']}" class="img-thumbnail" alt="${cruce[1]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[1]['id']}')"><p>${cruce[1]['nombre']}</p></button>
+    <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[1]['id']}')"><p>${cruce[1]['nombre']}</p></button>
     </div>`
 
     primeroB.innerHTML = `          
     
     <div class="team">
     <img src="${cruce[2]['bandera']}" class="img-thumbnail" alt="${cruce[2]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="('${cruce[2]['id']}')"><p>${cruce[2]['nombre']}</p></button>
+    <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[2]['id']}')"><p>${cruce[2]['nombre']}</p></button>
     </div>`
 
     segundoB.innerHTML = `          
    
     <div class="team">
     <img src="${cruce[3]['bandera']}" class="img-thumbnail" alt="${cruce[3]['nombre']}-error" >        
-    <button type="button" class="btn btn-light" onclick="cruceCuartos('${cruce[3]['id']}')"><p>${cruce[3]['nombre']}</p></button>
+    <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[3]['id']}')"><p>${cruce[3]['nombre']}</p></button>
     </div>`
 
 
 }
 
 
-/*  function cruceCuartos(id) {
+function creoCuartos(id) {
+
+    let equipoActual = equiposClasificados.filter(actual => actual.id == id)[0]
+    let left, rigth = false;
+    if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B")) {
+
+        let cuartoAyB;
+        let espacio = cruce1.map(e => e.id).indexOf(id);
+        if (espacio == 0 || espacio == 3) {
+            cuartoAyB = document.getElementById("cuartos-AB")
+            left = true;
+        }
+        if (espacio == 1 || espacio == 2) {
+            cuartoAyB = document.getElementById("cuartos-BA")
+            rigth = true;
+        }
+        cuartoAyB.innerHTML = `
     
-    let cuartos1 = [];
-    let cuartos2 = [];
-    let ajustoEleccionA = cruce1.filter(actual => actual.grupo == "A")
-    let ajustoEleccionB = cruce1.filter(actual => actual.grupo == 'B')
-    
-    for (const equipo of cruce1) {
-        if (equipo.id == id && !cruce1.includes(equipo)) {
-            console.log(cuartos1)
-          
-            if (cruce1.length < 4) {
+    <div class="team">
+    <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+    <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+    </div>     
+   `
+    }
 
-                if (ajustoEleccionA.length < 2 && equipo.grupo == "A") {
-                    cuartos1.push(equipo)
-                
+    if (equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
 
-                }
+        let cuartoCyD;
+        let espacio = cruce2.map(e => e.id).indexOf(id);
+        if (espacio == 0 || espacio == 3) {
+            cuartoCyD = document.getElementById("cuartos-CD")
+            left = true;
+        }
+        if (espacio == 1 || espacio == 2) {
+            cuartoCyD = document.getElementById("cuartos-DC")
+            rigth = true;
+        }
+        cuartoCyD.innerHTML = `
+        
+        <div class="team">
+        <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+        </div>      
+        `
+    }
 
-                if (ajustoEleccionB.length < 2 && equipo.grupo == "B" && ajustoEleccionA.length > 1) {
-                    cuartos2.push(equipo)
-                    ocultoEquipo.style.display = 'none';
+    if (equipoActual.grupo.includes("E") || equipoActual.grupo.includes("F")) {
 
-                }
+        let cuartoEyF;
+        let espacio = cruce3.map(e => e.id).indexOf(id);
+        if (espacio == 0 || espacio == 3) {
+            cuartoEyF = document.getElementById("cuartos-EF")
+            left = true;
+        }
+        if (espacio == 1 || espacio == 2) {
+            cuartoEyF = document.getElementById("cuartos-FE")
+            rigth = true;
+        }
+        cuartoEyF.innerHTML = `
+        
+        <div class="team">
+        <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+        </div>      
+        `
+    }
+
+    if (equipoActual.grupo.includes("G") || equipoActual.grupo.includes("H")) {
+
+        let cuartoGyH;
+        let espacio = cruce4.map(e => e.id).indexOf(id);
+        if (espacio == 0 || espacio == 3) {
+            cuartoGyH = document.getElementById("cuartos-GH")
+            left = true;
+        }
+        if (espacio == 1 || espacio == 2) {
+            cuartoGyH = document.getElementById("cuartos-HG")
+            rigth = true;
+        }
+        cuartoGyH.innerHTML = `
+        
+        <div class="team">
+        <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+        </div>      
+        `
+    }
 
 
-                if (equipo.grupo == "B" && ajustoEleccionA.length < 2) {
-                    Swal.fire({
-                        title: 'Primero debes elegir los dos equipos del grupo A',
-                        background: ' #8a1538',
-                        color: 'white',
-                        imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
-                        icon: 'warning',
-                        imageWidth: 600,
-                        imageHeight: 200,
-                        confirmButtonText: 'OK'
-                    })
-                }
+}
 
-            }
+
+function creoSemis(id, left, rigth) {
+    let equipoActual = equiposClasificados.filter(actual => actual.id == id.id)[0]
+
+    if (left) {
+        if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B") || equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
+            let semisUno = document.getElementById("izq-uno")
+            semisUno.innerHTML = `
+        
+        <div class="team">
+        <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+        </div>      
+        `
+        } else{
+            let semisDos = document.getElementById("izq-dos")
+            semisDos.innerHTML = `
+            
+            <div class="team">
+            <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+            </div>      
+            `
 
         }
     }
 
+    if (rigth) {
+        if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B") || equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
+            let semisTres = document.getElementById("der-uno")
+            semisTres.innerHTML = `
+        
+        <div class="team">
+        <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+        <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
+        </div>      
+        `
+        } else{
+            let semisCuatro = document.getElementById("der-dos")
+            semisCuatro.innerHTML = `
+            
+            <div class="team">
+            <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id})"><p>${equipoActual.nombre}</p></button>   
+            </div>      
+            `
+
+        }
+    }
+   
+}
 
 
+function creoFinal(id,  left) {
+    debugger
+    let equipoActual = equiposClasificados.filter(actual => actual.id == id.id)[0]
+    if(left){
+        let primerFinalista = document.getElementById("final-A")
+        primerFinalista.innerHTML = `
+            
+            <div class="team">
+            <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"><p>${equipoActual.nombre}</p></button>   
+            </div>      
+            `
+    } else{
+        let segundoFinalista = document.getElementById("final-B")
+        segundoFinalista.innerHTML = `
+            
+            <div class="team">
+            <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
+            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"><p>${equipoActual.nombre}</p></button>   
+            </div>      
+            `
+    }
 
-    /* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
-    PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
-/*    cruce1.push(...equiposGrupoA)
-   cruce1.push(...equiposGrupoB)
-   localStorage.setItem('cruce1', JSON.stringify(cruce1)) */
-
-/* mostrarEquiposOctavos(equiposGrupoA)
-mostrarEquiposOctavos(equiposGrupoB) */
-/* cruzarEquipo(cruce1, ["A", "A", "B", "B"])     */
-/* } */
+}

@@ -86,11 +86,7 @@ const grupoH = [portugal, ghana, uruguay, corea];
  const cruce2 = [];
  const cruce3 = [];
  const cruce4 = [];
- const cruceCuartos1 = []
- const cruceCuartos2 = []
- const cruceCuartos3 = []
- const cruceCuartos4 = []
-
+ 
  
  localStorage.setItem('grupoB', grupoB)
  localStorage.setItem('grupoC', grupoC)
