@@ -3,33 +3,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 body {
-  
-    background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);     
-          
+
+    background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
+    width: 80%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
 
 }
+
 @font-face {
-    font-family:  Qatar;
+    font-family: Qatar;
     src: url(./font/Qatar2022Arabic-Bold.ttf);
-    }
+}
 
-    /* SWEET ALERT */
-    .swal2-container.swal2-center>.swal2-popup{
-        border-radius: 1rem;
-    }
-    .swal2-title{
-        font-family: Qatar;
-    }
+/* SWEET ALERT */
+.swal2-container.swal2-center>.swal2-popup {
+    border-radius: 1rem;
+}
 
-    .swal2-styled.swal2-confirm {
-        background-color: rgba(255, 255, 197, 0.603);
-        height: 60px;
-        width: 80px;
-        border-radius: 1rem;
-    }
+.swal2-title {
+    font-family: Qatar;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: rgba(255, 255, 197, 0.603);
+    height: 60px;
+    width: 80px;
+    border-radius: 1rem;
+}
 
 /* FIN GENERALES */
 
@@ -69,11 +78,15 @@ h1 {
 
 main {
     display: flex;
-} 
+}
+/* FIN SECCION PRINCIPAL */
+
+/* COMIENZO SECCION GRUPOS */
+
 
 #fixture {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
     margin-top: 2rem;
 }
 
@@ -94,23 +107,25 @@ main {
 }
 
 @media screen and (max-width: 898px) {
-    header h3{
-        font-size: 2.5vw;  
+    header h3 {
+        font-size: 2.5vw;
     }
-    h1, h3{
+
+    h1,
+    h3 {
         font-size: 4vw;
     }
-    
+
     main {
         display: block;
-    } 
+    }
 
-    #fixture{
+    #fixture {
         justify-content: center;
         align-items: center;
     }
 
-    
+
     .primero {
 
         height: 50px !important;
@@ -122,10 +137,10 @@ main {
         align-items: flex-start;
     }
 
-    #letra-grupo{
+    #letra-grupo {
         font-size: 2rem;
     }
-  
+
 }
 
 
@@ -135,7 +150,8 @@ main {
 
 }
 
-.equipo, .team {
+.equipo,
+.team {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -149,6 +165,11 @@ main {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+/* FIN SECCION GRUPOS */
+
+
+/* COMIENZO CRUCES INTERACTIVOS*/
 
 #copa {
     width: 10rem;
@@ -180,20 +201,19 @@ p {
     align-items: center;
     margin-top: 9rem;
     margin-right: 2rem;
-
+    font-family: Qatar;
 }
 
-#cruces-interactivos h2{
-color: rgb(143, 73, 73);
+#cruces-interactivos h4 {
+    color: rgb(143, 73, 73);
 }
 
 .primero {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
     border-radius: 1rem;
-    margin-top: 4rem;
-    height: 90px;
-    width: 80px;
-} 
+    height: 70px;
+    width: 60px;
+}
 
 
 .octavos-uno,
@@ -209,7 +229,29 @@ color: rgb(143, 73, 73);
 }
 
 #acomodo-cuartos {
-    margin-bottom: 10rem;
+    margin-bottom: 9rem;
 }
 
 
+#priC,
+#priD,
+#priE,
+#priF,
+#priG,
+#priH {
+    margin-top: 4rem;
+}
+
+#cuartos-AB, #cuartos-CD, #cuartos-EF, #cuartos-GH{
+    margin-left: 12rem;
+}
+
+#cuartos-BA, #cuartos-DC, #cuartos-FE, #cuartos-HG{
+    margin-right: 12rem;
+}
+
+#izq-uno, #der-uno{
+    margin-bottom: 30rem;
+}
+
+/* FIN CRUCES INTERACTIVOS*/

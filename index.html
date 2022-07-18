@@ -5,67 +5,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXTURE QATAR 2022</title>  
-    
+    <title>FIXTURE QATAR 2022</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  
-    
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
 
 </head>
 
 <body>
+    <!-- COMIENZO HEADER -->
     <header>
-      <nav class="navbar navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid">
-                <a href="https://www.qatar2022.qa/en/home" target="_blank"><img src="./images/logoMundial.svg" alt="logo-error" id="logo-wcp"></a>
+                <a href="https://www.qatar2022.qa/en/home" target="_blank"><img src="./images/logoMundial.svg"
+                        alt="logo-error" id="logo-wcp"></a>
 
                 <h3>Simulador Interactivo - Mundial Qatar 2022 </h3>
-                
 
-               <a href="https://www.fifa.com/" target="_blank"> <img src="./images/FIFA_2009.svg" alt="logo-error" id="logo-fifa"></a>
+
+                <a href="https://www.fifa.com/" target="_blank"> <img src="./images/FIFA_2009.svg" alt="logo-error"
+                        id="logo-fifa"></a>
             </div>
-        </nav> 
+        </nav>
     </header>
-    
-    <div data-aos="zoom-in"><h1>Elegí los dos equipos que clasificarán de cada grupo a octavos de final</h1></div>
+    <!-- FIN HEADER -->
+
+    <!-- TITULO DINAMICO POR JS -->
+    <div data-aos="zoom-in" id="titulo-indicativo">
+        <h1>Elegí los dos equipos que clasificarán de cada grupo a octavos de final</h1>
+    </div>
+
+    <!-- COMIENZO SECCIÓN PRINCIPAL-->
     <main id="main-general">
 
+        <!-- COMIENZO SECCION GRUPOS - RENDERIZADO JS -->
         <section class="main-1">
-            <section id="fixture"></section>            
+            <section id="fixture"></section>
         </section>
+        <!-- FIN SECCION GRUPOS - RENDERIZADO JS -->
 
         <section id="main-2">
+
+            <!-- COMIENZO CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
+
             <div id="cruces-interactivos">
 
+                <!-- OCTAVOS Y CUARTOS LADO IZQUIERDO -->
                 <section class="octavos-uno">
                     <section class="octavos-A">
-                        <div class="primero" id="1A"><h2>1A</h2></div>
-                        <div class="primero" id="2B"><h2>2B</h2></div>
-                        <div class="primero" id="1C"><h2>1C</h2></div>
-                        <div class="primero" id="2D"><h2>2D</h2></div>
+                        <div class="primero" id="priA">
+                            <h4>1A</h4>
+                        </div>
+                        <div class="primero" id="cuartos-AB"></div>
+                        <div class="primero" id="segB">
+                            <h4>2B</h4>
+                        </div>
+                        <div class="primero" id="priC">
+                            <h4>1C</h4>
+                        </div>
+                        <div class="primero" id="cuartos-CD"></div>
+
+                        <div class="primero" id="segD">
+                            <h4>2D</h4>
+                        </div>
                     </section>
                     <section class="octavos-B">
-                        <div class="primero" id="1E"><h2>1E</h2></div>
-                        <div class="primero" id="2F"><h2>2F</h2></div>
-                        <div class="primero" id="1G"><h2>1G</h2></div>
-                        <div class="primero" id="2H"><h2>2H</h2></div>
-                    </section>
-                </section>
-
-                <section class="cuartos-uno">
-                    <section class="cuartos-A">
-                        <div id="acomodo-cuartos">
-                            <div class="primero" id="cuartos-AB"></div>
-                            <div class="primero" id="cuartos-CD"></div>
+                        <div class="primero" id="priE">
+                            <h4>1E</h4>
                         </div>
                         <div class="primero" id="cuartos-EF"></div>
+                        <div class="primero" id="segF">
+                            <h4>2F</h4>
+                        </div>
+                        <div class="primero" id="priG">
+                            <h4>1G</h4>
+                        </div>
                         <div class="primero" id="cuartos-GH"></div>
+                        <div class="primero" id="segH">
+                            <h4>2H</h4>
+                        </div>
                     </section>
                 </section>
 
+                <!-- SEMIFINAL LADO IZQUIERDO -->
                 <section class="semifinal-uno">
                     <section class="semifinal-A">
                         <div class="primero" id="izq-uno"></div>
@@ -73,24 +99,26 @@
                     </section>
                 </section>
 
+                <!--FINAL LADO IZQUEIRDO  -->
                 <section class="final">
-                    <section >
+                    <section>
                         <div class="primero" id="final-A"></div>
                     </section>
                 </section>
-                
-                <section >
+
+                <!-- IMAGEN CENTRAL COPA DEL MUNDO -->
+                <section>
                     <img src="./images/copa-mundial.png" alt="copa-error" id="copa">
                 </section>
 
-
-
+                <!-- FINAL LADO DERECHO -->
                 <section class="final">
                     <section>
                         <div class="primero" id="final-B"></div>
                     </section>
                 </section>
 
+                <!-- SEMIFINAL LADO DERECHO -->
                 <section class="semifinal-dos">
                     <section class="semifinal-B">
                         <div class="primero" id="der-uno"></div>
@@ -98,51 +126,58 @@
                     </section>
                 </section>
 
-                <section class="cuartos-dos">
-                    <section class="cuartos-B">
-                        <div id="acomodo-cuartos">
-                            <div class="primero" id="cuartos-BA"></div>
-                            <div class="primero" id="cuartos-DC"></div>
+                <!-- OCTAVOS Y CUARTOS LADO DERECHO -->
+                <section class="octavos-dos">
+                    <section class="parteA">
+                        <div class="primero" id="priB">
+                            <h4>1B</h4>
+                        </div>
+                        <div class="primero" id="cuartos-BA"></div>
+                        <div class="primero" id="segA">
+                            <h4>2A</h4>
+                        </div>
+                        <div class="primero" id="priD">
+                            <h4>1D</h4>
+                        </div>
+                        <div class="primero" id="cuartos-DC"></div>
+                        <div class="primero" id="segC">
+                            <h4>2C</h4>
+                        </div>
+                    </section>
+                    <section class="parteB">
+                        <div class="primero" id="priF">
+                            <h4>1F</h4>
                         </div>
                         <div class="primero" id="cuartos-FE"></div>
+                        <div class="primero" id="segE">
+                            <h4>2E</h4>
+                        </div>
+                        <div class="primero" id="priH">
+                            <h4>1H</h4>
+                        </div>
                         <div class="primero" id="cuartos-HG"></div>
+                        <div class="primero" id="segG">
+                            <h4>2G</h4>
+                        </div>
                     </section>
                 </section>
-
-                <section class="octavos-dos">
-
-                    <section class="parteA">
-                        <div class="primero" id="1B"><h2>1B</h2></div>
-                        <div></div>
-                        <div class="primero" id="2A"><h2>2A</h2></div>
-                        <div class="primero" id="1D"><h2>1D</h2></div>
-                        <div class="primero" id="2C"><h2>2C</h2></div>
-                    </section>
-
-                    <section class="parteB">
-                        <div class="primero" id="1F"><h2>1F</h2></div>
-                        <div class="primero" id="2E"><h2>2E</h2></div>
-                        <div class="primero" id="1H"><h2>1H</h2></div>
-                        <div class="primero" id="2G"><h2>2G</h2></div>
-                    </section>
-
-                </section>
-
             </div>
-        </section>     
+            <!-- FIN CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
+        </section>
 
     </main>
-    
+
+    <!-- COMIENZO SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/less"></script>
     <script src="./js/grupos.js"></script>
     <script src="./js/funciones.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>AOS.init();</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
-      
-     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <!-- FIN SCRIPTS -->
 </body>
+
 </html>
