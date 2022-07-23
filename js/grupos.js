@@ -1,3 +1,18 @@
+class EquipoC{
+    constructor(id, pais, partidosJugados, partidosGanados, partidosEmpatados, partidosPerdidos, puntos, bandera){
+        this.id = id;
+        this.pais = pais;
+        this.partidosJugados = partidosJugados;
+        this.partidosGanados = partidosGanados;
+        this.partidosEmpatados = partidosEmpatados;
+        this.partidosPerdidos = partidosPerdidos;
+        this.puntos = puntos;
+        this.bandera = bandera;
+    }
+
+}
+
+
 class Equipo {
     constructor(id, nombre, grupo, bandera) {
         this.id = id;
@@ -33,7 +48,7 @@ const mexico = new Equipo("mex", "Mexico","C","https://www.mundoprimaria.com/wp-
 const polonia = new Equipo("pol", "Polonia","C",  "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Polonia-Bandera-Europa.png");
 
 const grupoC = [argentina, arabiaSaudita, mexico, polonia];
-
+ 
 
 
 //GRUPO D - OBJETOS Y ARRAY DE GRUPO CON LOS OBJETOS DE LA CLASE EQUIPO. FALTA JUGARSE UN REPECHAJE.

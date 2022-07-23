@@ -9,7 +9,7 @@ SE IRÁN ARMANDO LOS CRUCES DINAMICAMENTE HASTA LLEGAR A LA FINAL.
 
 
 
-/* 
+/*
 
 MEDIANTE USO DEL DOM RENDERIZO LOS GRUPOS QUE SE MUESTRAN EN PANTALLA.
 * APLICO ONCLICK PARA DESPUES UTILIZAR EL BOTON PARA SELECCIONAR EL EQUIPO
@@ -18,7 +18,7 @@ LUEGO PODER ARMAR CORRECTAMENTE LOS CRUCES DE OCTAVOS DE FINAL SEGUN MI ESCTRUCT
 
 */
 
-let contador = 0
+
 const cruces = document.getElementById('fixture')
 
 
@@ -322,7 +322,7 @@ function cuartoCruce(id) {
         let acomodoCruces = document.getElementById('cruces-interactivos')
         acomodoCruces.style = "margin-top: 0"
         let cambioTitulo = document.getElementById("titulo-indicativo")
-        cambioTitulo.innerHTML=`<h1>Elegí los equipos que clasificarán a cuartos de final </h1>`
+        cambioTitulo.innerHTML = `<h1>Elegí los equipos que clasificarán a cuartos de final </h1>`
     }
 
 
@@ -391,19 +391,19 @@ function cruzarEquipo(cruce, ubicacion, instancia = "") {
 
 /* FUNCION PARA CREAR LOS CUARTOS DE FINAL. IMPLEMENTO LAS VARIABLES LEFT Y RIGTH PARA PODER LUEGO UBICAR LOS EQUIPOS EN EL CUADRO */
 function creoCuartos(id) {
-    
+
     let left, rigth = false;
-    
-    
+
+
     let equipoActual = equiposClasificados.filter(actual => actual.id == id)[0]
-    
-    if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B")) {       
+
+    if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B")) {
         let cuartoAyB;
         let espacio = cruce1.map(e => e.id).indexOf(id);
         if (espacio == 0 || espacio == 3) {
             cuartoAyB = document.getElementById("cuartos-AB")
             left = true;
-            
+
         }
         if (espacio == 1 || espacio == 2) {
             cuartoAyB = document.getElementById("cuartos-BA")
@@ -451,7 +451,7 @@ function creoCuartos(id) {
         if (espacio == 1 || espacio == 2) {
             cuartoEyF = document.getElementById("cuartos-FE")
             rigth = true;
-            
+
         }
         cuartoEyF.innerHTML = `
         
@@ -482,7 +482,7 @@ function creoCuartos(id) {
         </div>      
         `
     }
-    
+
 }
 
 /* FUNCION PARA CREAR LAS SEMIFINALES, MISMA LOGICA QUE PARA LOS CUARTOS DE FINAL PARA ASEGURARME LOS CRUCES REALES */
@@ -499,7 +499,7 @@ function creoSemis(id, left, rigth) {
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
         </div>      
         `
-        } else{
+        } else {
             let semisDos = document.getElementById("izq-dos")
             semisDos.innerHTML = `
             
@@ -522,7 +522,7 @@ function creoSemis(id, left, rigth) {
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"><p>${equipoActual.nombre}</p></button>   
         </div>      
         `
-        } else{
+        } else {
             let semisCuatro = document.getElementById("der-dos")
             semisCuatro.innerHTML = `
             
@@ -534,15 +534,15 @@ function creoSemis(id, left, rigth) {
 
         }
     }
-   
+
 }
 
 /* FUNCION PARA CREAR LA FINAL */
-function creoFinal(id,  left) {    
+function creoFinal(id, left) {
     let equipoActual = equiposClasificados.filter(actual => actual.id == id.id)[0]
-    if(left){
+    if (left) {
         let primerFinalista = document.getElementById("final-A")
-        
+
         primerFinalista.innerHTML = `
         
             <div class="team" id="final${equipoActual.id}">
@@ -551,9 +551,9 @@ function creoFinal(id,  left) {
             <input type ="button" value="X" id="btn-cerrar">
             </div>      
             `
-        } else{
-            let segundoFinalista = document.getElementById("final-B")
-            segundoFinalista.innerHTML = `
+    } else {
+        let segundoFinalista = document.getElementById("final-B")
+        segundoFinalista.innerHTML = `
             
             <div class="team" id="final${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
@@ -561,26 +561,26 @@ function creoFinal(id,  left) {
             <input type ="button" value="X" id="btn-cerrar"> 
             </div>      
             `
-        }
-        
-        let btnCerrar = document.getElementById("btn-cerrar")
-        btnCerrar.addEventListener("click", ()=> {
-            let ocultarEquipo= document.getElementById(`final${equipoActual.id}`)
-            ocultarEquipo.innerHTML =""
-        })
+    }
 
-        borrarEquipo()
-    
-    }
-    
-    /* FUNCION (POR AHORA DE PRUEBA) PARA ELIMINAR LOS EQUIPOS DE LA FINAL */
-    function borrarEquipo(id){
-        let borrarEquipo = equiposClasificados.filter(actual => actual.id == id.id)[0]
-        let btnCerrar = document.getElementById("btn-cerrar")
-        btnCerrar.addEventListener("click", ()=> {
-           
-            let ocultarEquipo= document.getElementById(`final${borrarEquipo.id}`)
-            ocultarEquipo.style.display="none"
-            
-        })
-    }
+    let btnCerrar = document.getElementById("btn-cerrar")
+    btnCerrar.addEventListener("click", () => {
+        let ocultarEquipo = document.getElementById(`final${equipoActual.id}`)
+        ocultarEquipo.innerHTML = ""
+    })
+
+    borrarEquipo()
+
+}
+
+/* FUNCION (POR AHORA DE PRUEBA) PARA ELIMINAR LOS EQUIPOS DE LA FINAL */
+function borrarEquipo(id) {
+    let borrarEquipo = equiposClasificados.filter(actual => actual.id == id.id)[0]
+    let btnCerrar = document.getElementById("btn-cerrar")
+    btnCerrar.addEventListener("click", () => {
+
+        let ocultarEquipo = document.getElementById(`final${borrarEquipo.id}`)
+        ocultarEquipo.style.display = "none"
+
+    })
+}

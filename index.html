@@ -1,183 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FIXTURE QATAR 2022</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="stylesheet/style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheet/style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-
-
-</head>
-
-<body>
+  <body>
     <!-- COMIENZO HEADER -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-dark">
-            <div class="container-fluid">
-                <a href="https://www.qatar2022.qa/en/home" target="_blank"><img src="./images/logoMundial.svg"
-                        alt="logo-error" id="logo-wcp"></a>
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a href="https://www.qatar2022.qa/en/home" target="_blank"
+            ><img src="./images/logoMundial.svg" alt="logo-error" id="logo-wcp"
+          /></a>
 
-                <h3>Simulador Interactivo - Mundial Qatar 2022 </h3>
+          <h3>Simulador Interactivo - Mundial Qatar 2022</h3>
 
-
-                <a href="https://www.fifa.com/" target="_blank"> <img src="./images/FIFA_2009.svg" alt="logo-error"
-                        id="logo-fifa"></a>
-            </div>
-        </nav>
+          <a href="https://www.fifa.com/" target="_blank">
+            <img src="./images/FIFA_2009.svg" alt="logo-error" id="logo-fifa"
+          /></a>
+        </div>
+      </nav>
     </header>
     <!-- FIN HEADER -->
 
     <!-- TITULO DINAMICO POR JS -->
     <div data-aos="zoom-in" id="titulo-indicativo">
-        <h1>Elegí los dos equipos que clasificarán de cada grupo a octavos de final</h1>
+      <h1>
+        Elegí los dos equipos que clasificarán de cada grupo a octavos de final
+      </h1>
     </div>
 
     <!-- COMIENZO SECCIÓN PRINCIPAL-->
     <main id="main-general">
-
-        <!-- COMIENZO SECCION GRUPOS - RENDERIZADO JS -->
-        <section class="main-1">
-            <section id="fixture"></section>
+      <!-- COMIENZO SECCION GRUPOS - RENDERIZADO JS -->
+      <section class="main-1">
+        <section id="banner-argentina"><a href="./pages/argentinaInteractivo.html">
+            <h5>¡Entrá acá y jugá <br>con el grupo de la seleccion!</h5>
+          <img src="./images/logoAfa.png" alt="afa-error" id="logo-afa"/></a>
         </section>
-        <!-- FIN SECCION GRUPOS - RENDERIZADO JS -->
+        <section id="fixture"></section>
+      </section>
+      <!-- FIN SECCION GRUPOS - RENDERIZADO JS -->
 
-        <section id="main-2">
+      <section id="main-2">
+        <!-- COMIENZO CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
 
-            <!-- COMIENZO CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
+        <div id="cruces-interactivos">
+          <!-- OCTAVOS Y CUARTOS LADO IZQUIERDO -->
+          <section class="octavos-uno">
+            <section class="octavos-A">
+              <div class="primero" id="priA">
+                <h4>1A</h4>
+              </div>
+              <div class="primero" id="cuartos-AB"></div>
+              <div class="primero" id="segB">
+                <h4>2B</h4>
+              </div>
+              <div class="primero" id="priC">
+                <h4>1C</h4>
+              </div>
+              <div class="primero" id="cuartos-CD"></div>
 
-            <div id="cruces-interactivos">
+              <div class="primero" id="segD">
+                <h4>2D</h4>
+              </div>
+            </section>
+            <section class="octavos-B">
+              <div class="primero" id="priE">
+                <h4>1E</h4>
+              </div>
+              <div class="primero" id="cuartos-EF"></div>
+              <div class="primero" id="segF">
+                <h4>2F</h4>
+              </div>
+              <div class="primero" id="priG">
+                <h4>1G</h4>
+              </div>
+              <div class="primero" id="cuartos-GH"></div>
+              <div class="primero" id="segH">
+                <h4>2H</h4>
+              </div>
+            </section>
+          </section>
 
-                <!-- OCTAVOS Y CUARTOS LADO IZQUIERDO -->
-                <section class="octavos-uno">
-                    <section class="octavos-A">
-                        <div class="primero" id="priA">
-                            <h4>1A</h4>
-                        </div>
-                        <div class="primero" id="cuartos-AB"></div>
-                        <div class="primero" id="segB">
-                            <h4>2B</h4>
-                        </div>
-                        <div class="primero" id="priC">
-                            <h4>1C</h4>
-                        </div>
-                        <div class="primero" id="cuartos-CD"></div>
+          <!-- SEMIFINAL LADO IZQUIERDO -->
+          <section class="semifinal-uno">
+            <section class="semifinal-A">
+              <div class="primero" id="izq-uno"></div>
+              <div class="primero" id="izq-dos"></div>
+            </section>
+          </section>
 
-                        <div class="primero" id="segD">
-                            <h4>2D</h4>
-                        </div>
-                    </section>
-                    <section class="octavos-B">
-                        <div class="primero" id="priE">
-                            <h4>1E</h4>
-                        </div>
-                        <div class="primero" id="cuartos-EF"></div>
-                        <div class="primero" id="segF">
-                            <h4>2F</h4>
-                        </div>
-                        <div class="primero" id="priG">
-                            <h4>1G</h4>
-                        </div>
-                        <div class="primero" id="cuartos-GH"></div>
-                        <div class="primero" id="segH">
-                            <h4>2H</h4>
-                        </div>
-                    </section>
-                </section>
+          <!--FINAL LADO IZQUEIRDO  -->
+          <section class="final">
+            <section>
+              <div class="primero" id="final-A"></div>
+            </section>
+          </section>
 
-                <!-- SEMIFINAL LADO IZQUIERDO -->
-                <section class="semifinal-uno">
-                    <section class="semifinal-A">
-                        <div class="primero" id="izq-uno"></div>
-                        <div class="primero" id="izq-dos"></div>
-                    </section>
-                </section>
+          <!-- IMAGEN CENTRAL COPA DEL MUNDO -->
+          <section>
+            <img src="./images/copa-mundial.png" alt="copa-error" id="copa" />
+          </section>
 
-                <!--FINAL LADO IZQUEIRDO  -->
-                <section class="final">
-                    <section>
-                        <div class="primero" id="final-A"></div>
-                    </section>
-                </section>
+          <!-- FINAL LADO DERECHO -->
+          <section class="final">
+            <section>
+              <div class="primero" id="final-B"></div>
+            </section>
+          </section>
 
-                <!-- IMAGEN CENTRAL COPA DEL MUNDO -->
-                <section>
-                    <img src="./images/copa-mundial.png" alt="copa-error" id="copa">
-                </section>
+          <!-- SEMIFINAL LADO DERECHO -->
+          <section class="semifinal-dos">
+            <section class="semifinal-B">
+              <div class="primero" id="der-uno"></div>
+              <div class="primero" id="der-dos"></div>
+            </section>
+          </section>
 
-                <!-- FINAL LADO DERECHO -->
-                <section class="final">
-                    <section>
-                        <div class="primero" id="final-B"></div>
-                    </section>
-                </section>
-
-                <!-- SEMIFINAL LADO DERECHO -->
-                <section class="semifinal-dos">
-                    <section class="semifinal-B">
-                        <div class="primero" id="der-uno"></div>
-                        <div class="primero" id="der-dos"></div>
-                    </section>
-                </section>
-
-                <!-- OCTAVOS Y CUARTOS LADO DERECHO -->
-                <section class="octavos-dos">
-                    <section class="parteA">
-                        <div class="primero" id="priB">
-                            <h4>1B</h4>
-                        </div>
-                        <div class="primero" id="cuartos-BA"></div>
-                        <div class="primero" id="segA">
-                            <h4>2A</h4>
-                        </div>
-                        <div class="primero" id="priD">
-                            <h4>1D</h4>
-                        </div>
-                        <div class="primero" id="cuartos-DC"></div>
-                        <div class="primero" id="segC">
-                            <h4>2C</h4>
-                        </div>
-                    </section>
-                    <section class="parteB">
-                        <div class="primero" id="priF">
-                            <h4>1F</h4>
-                        </div>
-                        <div class="primero" id="cuartos-FE"></div>
-                        <div class="primero" id="segE">
-                            <h4>2E</h4>
-                        </div>
-                        <div class="primero" id="priH">
-                            <h4>1H</h4>
-                        </div>
-                        <div class="primero" id="cuartos-HG"></div>
-                        <div class="primero" id="segG">
-                            <h4>2G</h4>
-                        </div>
-                    </section>
-                </section>
-            </div>
-            <!-- FIN CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
-        </section>
-
+          <!-- OCTAVOS Y CUARTOS LADO DERECHO -->
+          <section class="octavos-dos">
+            <section class="parteA">
+              <div class="primero" id="priB">
+                <h4>1B</h4>
+              </div>
+              <div class="primero" id="cuartos-BA"></div>
+              <div class="primero" id="segA">
+                <h4>2A</h4>
+              </div>
+              <div class="primero" id="priD">
+                <h4>1D</h4>
+              </div>
+              <div class="primero" id="cuartos-DC"></div>
+              <div class="primero" id="segC">
+                <h4>2C</h4>
+              </div>
+            </section>
+            <section class="parteB">
+              <div class="primero" id="priF">
+                <h4>1F</h4>
+              </div>
+              <div class="primero" id="cuartos-FE"></div>
+              <div class="primero" id="segE">
+                <h4>2E</h4>
+              </div>
+              <div class="primero" id="priH">
+                <h4>1H</h4>
+              </div>
+              <div class="primero" id="cuartos-HG"></div>
+              <div class="primero" id="segG">
+                <h4>2G</h4>
+              </div>
+            </section>
+          </section>
+        </div>
+        <!-- FIN CRUCES INTERACTIVOS - RENDERIZADOS POR DOM JS -->
+      </section>
     </main>
 
     <!-- COMIENZO SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/less"></script>
+
+    <script src="./js/grupoArgentina.js"></script>
     <script src="./js/grupos.js"></script>
     <script src="./js/funciones.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>AOS.init();</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <!-- FIN SCRIPTS -->
-</body>
-
+  </body>
 </html>
