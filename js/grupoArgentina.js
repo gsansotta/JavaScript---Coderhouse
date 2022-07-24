@@ -8,42 +8,82 @@ const crucesArgentina = document.getElementById("fixture-C");
 let primerClasificado;
 let segundoClasificado;
 let fechasJugadas = 0;
-let paisArgentina
-let paisArabiaSaudita
-let paisMexico 
-let paisPolonia 
-let grupoArgentina = []
+let paisArgentina;
+let paisArabiaSaudita;
+let paisMexico;
+let paisPolonia;
+let grupoArgentina = [];
 
-async function recuperoEquiposGrupoC(){
+/* TRAIGO LOS OBJETOS DEL ARCHIVO EQUIPOS.JSON Y LUEGO LOS CONVIERTO EN OBJETOS DE LA CLASE EquipoC */
 
-    await fetch("../json/equipos.json")
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        for (const iterator of data) {
-            if (iterator.pais.includes("Argentina")){
-              paisArgentina = new EquipoC(iterator.id, iterator.pais, iterator.partidosJugados, iterator.partidosGanados, iterator.partidosEmpatados, iterator.partidosPerdidos, iterator.puntos, iterator.bandera)
-            }
-            if (iterator.pais.includes("Arabia Saudita")){
-              paisArabiaSaudita = new EquipoC(iterator.id, iterator.pais, iterator.partidosJugados, iterator.partidosGanados, iterator.partidosEmpatados, iterator.partidosPerdidos, iterator.puntos, iterator.bandera)
-    
-            }
-            if (iterator.pais.includes("Mexico")){
-              paisMexico = new EquipoC(iterator.id, iterator.pais, iterator.partidosJugados, iterator.partidosGanados, iterator.partidosEmpatados, iterator.partidosPerdidos, iterator.puntos, iterator.bandera)
-    
-            }
-            if (iterator.pais.includes("Polonia")){
-              paisPolonia = new EquipoC(iterator.id, iterator.pais, iterator.partidosJugados, iterator.partidosGanados, iterator.partidosEmpatados, iterator.partidosPerdidos, iterator.puntos, iterator.bandera)
-    
-            }
-        }        
-        grupoArgentina = [paisArgentina, paisArabiaSaudita, paisMexico, paisPolonia]
-        /* localStorage.setItem("grupoC", JSON.stringify(data)); */
-        jugarFecha1(data);
-        jugarFecha2(data)
-        jugarFecha3(data)
-      });
-      console.log(grupoArgentina);
+async function recuperoEquiposGrupoC() {
+  await fetch("../json/equipos.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data);
+      for (const iterator of data) {
+        if (iterator.pais.includes("Argentina")) {
+          paisArgentina = new EquipoC(
+            iterator.id,
+            iterator.pais,
+            iterator.partidosJugados,
+            iterator.partidosGanados,
+            iterator.partidosEmpatados,
+            iterator.partidosPerdidos,
+            iterator.puntos,
+            iterator.bandera
+          );
+        }
+        if (iterator.pais.includes("Arabia Saudita")) {
+          paisArabiaSaudita = new EquipoC(
+            iterator.id,
+            iterator.pais,
+            iterator.partidosJugados,
+            iterator.partidosGanados,
+            iterator.partidosEmpatados,
+            iterator.partidosPerdidos,
+            iterator.puntos,
+            iterator.bandera
+          );
+        }
+        if (iterator.pais.includes("Mexico")) {
+          paisMexico = new EquipoC(
+            iterator.id,
+            iterator.pais,
+            iterator.partidosJugados,
+            iterator.partidosGanados,
+            iterator.partidosEmpatados,
+            iterator.partidosPerdidos,
+            iterator.puntos,
+            iterator.bandera
+          );
+        }
+        if (iterator.pais.includes("Polonia")) {
+          paisPolonia = new EquipoC(
+            iterator.id,
+            iterator.pais,
+            iterator.partidosJugados,
+            iterator.partidosGanados,
+            iterator.partidosEmpatados,
+            iterator.partidosPerdidos,
+            iterator.puntos,
+            iterator.bandera
+          );
+        }
+      }
+      /* CREO UN ARRAY QUE NO SE PISE CON EL YA EXISTENTE GRUPO C PARA INCORPORAR LOS EQUIPOS */
+      grupoArgentina = [
+        paisArgentina,
+        paisArabiaSaudita,
+        paisMexico,
+        paisPolonia,
+      ];
+      /* localStorage.setItem("grupoC", JSON.stringify(data)); */
+      jugarFecha1(data);
+      jugarFecha2(data);
+      jugarFecha3(data);
+    });
+  console.log(grupoArgentina);
 }
 /* CREO TRES FUNCIONES PARA DISPUTAR LAS TRES FECHAS DE LAS FASES DE GRUPO. GENERO CON INNER HTML LAS CARDS PARA LOS CRUCES.
 PARA QUE COINCIDAN EN EL ORDEN REAL APUNTÉ A LA POSICION DE LOS OBJETOS EQUIPOS DENTRO DEL ARRAY GRUPO C.
@@ -103,12 +143,12 @@ function jugarFecha1(grupo) {
             
             `;
 
-            crucesArgentina.appendChild(sectionFechaUno);
+  crucesArgentina.appendChild(sectionFechaUno);
 }
 
 /* FECHA 2 DEL GRUPO */
 
- function jugarFecha2(grupo) {
+function jugarFecha2(grupo) {
   let sectionFechaDos = document.createElement("section");
   sectionFechaDos.className = "fechaDos";
   sectionFechaDos.innerHTML = `
@@ -149,12 +189,12 @@ function jugarFecha1(grupo) {
             <button type="button" class="btn btn-danger" onclick="guardarFecha2('fecha2')">  Guardar Fecha 2</button>
             `;
 
-            crucesArgentina.appendChild(sectionFechaDos);
+  crucesArgentina.appendChild(sectionFechaDos);
 }
- 
+
 /* FECHA 3 DEL GRUPO */
 
- function jugarFecha3(grupo) {
+function jugarFecha3(grupo) {
   let sectionFechaTres = document.createElement("section");
   sectionFechaTres.className = "fechaTres";
   sectionFechaTres.innerHTML = `
@@ -194,8 +234,8 @@ function jugarFecha1(grupo) {
             </div></div>
             <button type="button" class="btn btn-danger" onclick="guardarFecha3('fecha3')">Guardar Fecha 3</button>`;
 
-            crucesArgentina.appendChild(sectionFechaTres);
-} 
+  crucesArgentina.appendChild(sectionFechaTres);
+}
 
 /* jugarFecha2(grupoC);
 jugarFecha3(grupoC); */
@@ -203,22 +243,42 @@ jugarFecha3(grupoC); */
 /* LOS TRES BOTONES GUARDAR FECHA CORERSPONDIENTES A CADA FECHA TIENEN EL EVENTO CLICK, A PARTIR DEL CUAL LE PASO LAS FUNCIONES DEVUELVO FECHA Y 
 GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEGEN EN LA TABLA DE POSICIONES */
 function guardarFecha1() {
-/*  let recuperoGrupoC = JSON.parse(localStorage.getItem('grupoC')) */
+  /*  let recuperoGrupoC = JSON.parse(localStorage.getItem('grupoC')) */
   devuelvoRdoFecha1();
-  genera_tabla( grupoArgentina );
-  alert("Se han guardado los resultados de la fecha 1");
+  genera_tabla(grupoArgentina);
+  Swal.fire({
+    title: "Se han guradado los resultados de la fecha 1",
+    background: " #8a1538",
+    color: "white",
+    imageUrl:
+      "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+    icon: "success",
+    imageWidth: 600,
+    imageHeight: 200,
+    confirmButtonText: "OK",
+  });
 }
 
- function guardarFecha2() {
+function guardarFecha2() {
   devuelvoRdoFecha2();
   genera_tabla(grupoArgentina);
-  alert("Se han guardado los resultados de la fecha 2");
+  Swal.fire({
+    title: "Se han guradado los resultados de la fecha 2",
+    background: " #8a1538",
+    color: "white",
+    imageUrl:
+      "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+    icon: "success",
+    imageWidth: 600,
+    imageHeight: 200,
+    confirmButtonText: "OK",
+  });
 }
 
 function guardarFecha3() {
   devuelvoRdoFecha3();
   genera_tabla(grupoArgentina);
-} 
+}
 
 /* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 1 */
 /* TOMO EL VALOR MEDIANTE LOS ID DE LOS INPUTS DE LOS RESULTADOS */
@@ -298,7 +358,7 @@ function devuelvoRdoFecha2() {
     );
   }
   fechasJugadas++;
-} 
+}
 
 /* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 3 */
 function devuelvoRdoFecha3() {
@@ -338,7 +398,7 @@ function devuelvoRdoFecha3() {
   }
   fechasJugadas++;
 }
- 
+
 /* GENERO TABLA MEDIANTE DOM QUE IRA MOSTRANDO Y RENDERIZANDO MEDIANTE EVENTOS.
  LAS POSICIONES SE MOSTRARAN EN FUNCION DE LOS PUNTOS MEDIANTE EL USO DE LA FUNCION SORT */
 
@@ -371,14 +431,20 @@ function genera_tabla(grupo) {
   if (fechasJugadas == 3) {
     let primero = grupo[0];
     let segundo = grupo[1];
-    alert(
-      `Clasifican a octavos de final: En primer posición ${primero.nombre} y en segunda posición ${segundo.nombre}`
-    );
+    Swal.fire({
+      title: `Clasifican a octavos de final: En primer posición ${primero.pais} y en segunda posición ${segundo.pais}`,
+      background: " #8a1538",
+      color: "white",
+      imageUrl:
+        "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+      icon: "success",
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: "OK",
+    });
   }
 }
 
- recuperoEquiposGrupoC().then(()=>{
-    genera_tabla(grupoArgentina)
-
-
-})
+recuperoEquiposGrupoC().then(() => {
+  genera_tabla(grupoArgentina);
+});
