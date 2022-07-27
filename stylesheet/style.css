@@ -13,7 +13,7 @@ body {
 
     background: #212529;
     /* radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%); */
-    width: 90%;
+    /* width: 90%; */
 
     margin-left: auto;
     margin-right: auto;
@@ -47,16 +47,11 @@ body {
 
 /* COMIENZO HEADER */
 
-#logo-wcp {
-    width: 50px;
-    margin-left: 2rem;
-    margin-top: 0.5rem;
+#logo-index {
+   display: none;
 }
 
-#logo-fifa {
-    width: 50px;
-    margin-right: 2rem;
-}
+
 
 header h3 {
     margin-top: 0.5rem;
@@ -137,6 +132,38 @@ header a {
     font-family: Qatar;
     text-align: center;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1066px) {
+
+   
+     
+    .index-principal {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    #banner-argentina,
+    #banner-fixture {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        max-width: 10rem;
+    }
+    header h3,
+    #banner-argentina h5,
+    #banner-fixture h5 {
+        font-size: 1rem !important;
+    }
+
+    .body-principal {
+        background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
+    }
+
+    #logo-index{
+        display: block;
+        max-width: 20rem;
+    }
 }
 
 /* FIN INDEX */
