@@ -11,7 +11,7 @@
 
 body {
 
-    background: #212529;
+    /* background: #212529; */
     /* radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%); */
     /* width: 90%; */
 
@@ -48,9 +48,8 @@ body {
 /* COMIENZO HEADER */
 
 #logo-index {
-   display: none;
+    display: none;
 }
-
 
 
 header h3 {
@@ -77,7 +76,7 @@ header a {
     background-size: cover;
 }
 
-.index-principal {
+.index-principal {    
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
@@ -134,8 +133,8 @@ header a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 1066px) {   
-     
+@media screen and (max-width: 1066px) {
+
     .index-principal {
         display: flex;
         flex-direction: column;
@@ -148,6 +147,7 @@ header a {
         margin-bottom: 2rem;
         max-width: 10rem;
     }
+
     header h3,
     #banner-argentina h5,
     #banner-fixture h5 {
@@ -158,7 +158,7 @@ header a {
         background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
     }
 
-    #logo-index{
+    #logo-index {
         display: block;
         max-width: 20rem;
     }
@@ -171,18 +171,27 @@ header a {
 
 /* COMIENZO SECCION GRUPO C - ARGENTINA */
 #fixture-C {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: flex;   
+    flex-direction: column; 
     align-items: center;
-    text-align: center;
-    margin-top: 2rem;
+    text-align: center;     
     font-family: Qatar;
     background-image: url("../images/fondo-afa.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    
+}
+
+.card {
+    width: 8rem !important;
+}
+
+#titulo-arg {
+    font-size: 5vh;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 1rem;
 }
 
 .table {
@@ -225,10 +234,20 @@ header a {
 }
 
 @media screen and (max-width: 759px) {
+    
+    #titulo-arg {
+        font-size: 3vh;
+    }
+
+    #fixture-C h1{
+        font-size: 2rem;
+    }
+
     .encuentros {
         flex-direction: column;
     }
-    .table{
+
+    .table {
         max-width: 3rem;
     }
 }
@@ -429,64 +448,14 @@ p {
 /* FIN CRUCES INTERACTIVOS*/
 
 
-/* COMIENZO SECCION PRINCIPAL */
-
-.table {
-    width: 500px;
-    margin: auto;
-    margin-top: 3rem;
-}
-
-#fixture-C {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.fechaUno,
-.fechaDos,
-.fechaTres {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-    background-color: rgba(0, 0, 0, 0.267);
-}
-
-main h1 {
-    color: aliceblue;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-shadow: 1px 1px 2px black;
-    ;
-}
-
-.encuentros h1 {
-    margin: auto;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    color: aliceblue;
-}
-
-.encuentros {
-    display: flex;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-}
-
-@media screen and (max-width: 759px) {
-    .encuentros {
-        flex-direction: column;
-    }
-}
 
 
 
-.card {
-    width: 8rem !important;
-}
+
+
+
+
+
+
+
+
