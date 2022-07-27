@@ -30,11 +30,13 @@ async function recuperoEquiposGrupoC() {
             iterator.partidosGanados,
             iterator.partidosEmpatados,
             iterator.partidosPerdidos,
+            iterator.golesFavor,
+            iterator.golesContra,
             iterator.puntos,
             iterator.bandera
           );
         }
-        if (iterator.pais.includes("Arabia Saudita")) {
+        if (iterator.pais.includes("A.Saudita")) {
           paisArabiaSaudita = new EquipoC(
             iterator.id,
             iterator.pais,
@@ -42,6 +44,8 @@ async function recuperoEquiposGrupoC() {
             iterator.partidosGanados,
             iterator.partidosEmpatados,
             iterator.partidosPerdidos,
+            iterator.golesFavor,
+            iterator.golesContra,
             iterator.puntos,
             iterator.bandera
           );
@@ -54,6 +58,8 @@ async function recuperoEquiposGrupoC() {
             iterator.partidosGanados,
             iterator.partidosEmpatados,
             iterator.partidosPerdidos,
+            iterator.golesFavor,
+            iterator.golesContra,
             iterator.puntos,
             iterator.bandera
           );
@@ -66,6 +72,8 @@ async function recuperoEquiposGrupoC() {
             iterator.partidosGanados,
             iterator.partidosEmpatados,
             iterator.partidosPerdidos,
+            iterator.golesFavor,
+            iterator.golesContra,
             iterator.puntos,
             iterator.bandera
           );
@@ -137,7 +145,7 @@ function jugarFecha1(grupo) {
             </div></div>
             
             
-            <button type="button" class="btn btn-danger" onclick="guardarFecha1('fecha1')"  >Guardar Fecha 1</button>
+            <button type="button" class="btn btn-danger" onclick="guardarFecha1('fecha1')" id="btn-uno" >Guardar Fecha 1</button>
 
            
             
@@ -186,7 +194,7 @@ function jugarFecha2(grupo) {
             <div class="card-body">
             <h5 class="card-title"> ${grupo[3]["pais"]}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[3]["id"]}"> </div>
             </div></div>
-            <button type="button" class="btn btn-danger" onclick="guardarFecha2('fecha2')">  Guardar Fecha 2</button>
+            <button type="button" class="btn btn-danger" onclick="guardarFecha2('fecha2')"  id="btn-dos">  Guardar Fecha 2</button>
             `;
 
   crucesArgentina.appendChild(sectionFechaDos);
@@ -232,47 +240,23 @@ function jugarFecha3(grupo) {
             <div class="card-body">
             <h5 class="card-title"> ${grupo[2]["pais"]}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[2]["id"]}"> </div>
             </div></div>
-            <button type="button" class="btn btn-danger" onclick="guardarFecha3('fecha3')">Guardar Fecha 3</button>`;
+            <button type="button" class="btn btn-danger" onclick="guardarFecha3('fecha3')"id="btn-tres">Guardar Fecha 3</button>`;
 
   crucesArgentina.appendChild(sectionFechaTres);
 }
 
-/* jugarFecha2(grupoC);
-jugarFecha3(grupoC); */
 
 /* LOS TRES BOTONES GUARDAR FECHA CORERSPONDIENTES A CADA FECHA TIENEN EL EVENTO CLICK, A PARTIR DEL CUAL LE PASO LAS FUNCIONES DEVUELVO FECHA Y 
 GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEGEN EN LA TABLA DE POSICIONES */
+
 function guardarFecha1() {
-  /*  let recuperoGrupoC = JSON.parse(localStorage.getItem('grupoC')) */
   devuelvoRdoFecha1();
   genera_tabla(grupoArgentina);
-  Swal.fire({
-    title: "Se han guradado los resultados de la fecha 1",
-    background: " #8a1538",
-    color: "white",
-    imageUrl:
-      "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
-    icon: "success",
-    imageWidth: 600,
-    imageHeight: 200,
-    confirmButtonText: "OK",
-  });
 }
 
 function guardarFecha2() {
   devuelvoRdoFecha2();
   genera_tabla(grupoArgentina);
-  Swal.fire({
-    title: "Se han guradado los resultados de la fecha 2",
-    background: " #8a1538",
-    color: "white",
-    imageUrl:
-      "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
-    icon: "success",
-    imageWidth: 600,
-    imageHeight: 200,
-    confirmButtonText: "OK",
-  });
 }
 
 function guardarFecha3() {
@@ -287,37 +271,91 @@ function devuelvoRdoFecha1() {
   const resutlado2 = document.getElementById(`primerResultadosau`).value;
   const resutlado3 = document.getElementById(`primerResultadomex`).value;
   const resutlado4 = document.getElementById(`primerResultadopol`).value;
+  const btn = document.getElementById('btn-uno');
 
   console.log(resutlado1);
   console.log(resutlado2);
   console.log(resutlado3);
   console.log(resutlado4);
 
-  if (resutlado1 == resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
-  } else if (resutlado1 > resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
-  } else {
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
-  }
+  if (resutlado1 == "" || resutlado2 == "" || resutlado3 == "" || resutlado4 == "") {
+    Swal.fire({
+      title: 'NO PUEDEN QUEDAR RESULTADOS VACÍOS',
+      background: ' #8a1538',
+      color: 'white',
+      imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+      icon: 'warning',
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: 'OK'
 
-  if (resutlado3 == resutlado4) {
-    paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
-    paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
-  } else if (resutlado3 > resutlado4) {
-    paisMexico.puntos = +paisMexico.puntos + ptsGanar;
-  } else {
-    paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
+    })
   }
+  else {
 
-  for (const equipo of grupoArgentina) {
-    equipo.partidosJugados++;
-    console.log(
-      `Los puntos finalizada la primer fecha de ${equipo.pais} son ${equipo.puntos}`
-    );
+    if (resutlado1 == resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
+      paisArgentina.partidosEmpatados++
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
+      paisArabiaSaudita.partidosEmpatados++
+    } else if (resutlado1 > resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
+      paisArgentina.partidosGanados++
+      paisArabiaSaudita.partidosPerdidos++
+    } else {
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
+      paisArgentina.partidosPerdidos++
+      paisArabiaSaudita.partidosGanados++
+    }
+
+    paisArgentina.golesFavor = + resutlado1;
+    paisArgentina.golesContra = + resutlado2;
+    paisArabiaSaudita.golesFavor = + resutlado2;
+    paisArabiaSaudita.golesContra = + resutlado1;
+
+    if (resutlado3 == resutlado4) {
+      paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
+      paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
+      paisMexico.partidosEmpatados++
+      paisPolonia.partidosEmpatados++
+    } else if (resutlado3 > resutlado4) {
+      paisMexico.puntos = +paisMexico.puntos + ptsGanar;
+      paisMexico.partidosGanados++
+      paisPolonia.partidosPerdidos++
+    } else {
+      paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
+      paisMexico.partidosPerdidos++
+      paisPolonia.partidosGanados++
+    }
+
+    paisMexico.golesFavor = + resutlado3;
+    paisMexico.golesContra = + resutlado4;
+    paisPolonia.golesFavor = + resutlado4;
+    paisPolonia.golesContra = + resutlado3;
+
+
+    for (const equipo of grupoArgentina) {
+      equipo.partidosJugados++;
+      console.log(
+        `Los puntos finalizada la primer fecha de ${equipo.pais} son ${equipo.puntos}`
+      );
+    }
+
+    Swal.fire({
+      title: "Se han guradado los resultados de la fecha 1",
+      background: " #8a1538",
+      color: "white",
+      imageUrl:
+        "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+      icon: "success",
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: "OK",
+    });
+
+    fechasJugadas++;
+    btn.style.display = 'none';
   }
-  fechasJugadas++;
 }
 
 /* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 2 */
@@ -327,37 +365,76 @@ function devuelvoRdoFecha2() {
   const resutlado2 = document.getElementById(`segundoResultadomex`).value;
   const resutlado3 = document.getElementById(`segundoResultadosau`).value;
   const resutlado4 = document.getElementById(`segundoResultadopol`).value;
+  const btn = document.getElementById('btn-dos');
 
   console.log(resutlado1);
   console.log(resutlado2);
   console.log(resutlado3);
   console.log(resutlado4);
 
-  if (resutlado1 == resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
-    paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
-  } else if (resutlado1 > resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
-  } else {
-    paisMexico.puntos = +paisMexico.puntos + ptsGanar;
-  }
+  if (resutlado1 == "" || resutlado2 == "" || resutlado3 == "" || resutlado4 == "") {
+    Swal.fire({
+      title: 'NO PUEDEN QUEDAR RESULTADOS VACÍOS',
+      background: ' #8a1538',
+      color: 'white',
+      imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+      icon: 'warning',
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: 'OK'
 
-  if (resutlado3 == resutlado4) {
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
-    paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
-  } else if (resutlado3 > resutlado4) {
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
-  } else {
-    paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
+    })
   }
+  else {
+    if (resutlado1 == resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
+      paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
+    } else if (resutlado1 > resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
+    } else {
+      paisMexico.puntos = +paisMexico.puntos + ptsGanar;
+    }
 
-  for (const equipo of grupoArgentina) {
-    equipo.partidosJugados++;
-    console.log(
-      `Los puntos finalizada la segunda fecha de ${equipo.nombre} son ${equipo.puntos}`
-    );
+
+    paisArgentina.golesFavor = + paisArgentina.golesFavor + Number(resutlado1);
+    paisArgentina.golesContra = + paisArgentina.golesContra + Number(resutlado2);
+    paisMexico.golesFavor = + paisMexico.golesFavor + Number(resutlado2);
+    paisMexico.golesContra = + paisMexico.golesContra + Number(resutlado1);
+
+    if (resutlado3 == resutlado4) {
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
+      paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
+    } else if (resutlado3 > resutlado4) {
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
+    } else {
+      paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
+    }
+
+    paisArabiaSaudita.golesFavor = +  paisArabiaSaudita.golesFavor + Number(resutlado3);
+    paisArabiaSaudita.golesContra = + paisArabiaSaudita.golesContra + Number(resutlado4);
+    paisPolonia.golesFavor = + paisPolonia.golesFavor + Number(resutlado4);
+    paisPolonia.golesContra = + paisPolonia.golesContra + Number(resutlado3);
+
+    for (const equipo of grupoArgentina) {
+      equipo.partidosJugados++;
+      console.log(
+        `Los puntos finalizada la segunda fecha de ${equipo.nombre} son ${equipo.puntos}`
+      );
+    }
+    Swal.fire({
+      title: "Se han guradado los resultados de la fecha 2",
+      background: " #8a1538",
+      color: "white",
+      imageUrl:
+        "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+      icon: "success",
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: "OK",
+    });
+    fechasJugadas++;
+    btn.style.display = 'none';
   }
-  fechasJugadas++;
 }
 
 /* FUNCION PARA DEVOLVER LOS PUNTOS DE LA FECHA 3 */
@@ -366,37 +443,77 @@ function devuelvoRdoFecha3() {
   const resutlado2 = document.getElementById(`tercerResultadopol`).value;
   const resutlado3 = document.getElementById(`tercerResultadosau`).value;
   const resutlado4 = document.getElementById(`tercerResultadomex`).value;
+  const btn = document.getElementById('btn-tres');
+
 
   console.log(resutlado1);
   console.log(resutlado2);
   console.log(resutlado3);
   console.log(resutlado4);
 
-  if (resutlado1 == resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
-    paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
-  } else if (resutlado1 > resutlado2) {
-    paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
-  } else {
-    paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
-  }
+  if (resutlado1 == "" || resutlado2 == "" || resutlado3 == "" || resutlado4 == "") {
+    Swal.fire({
+      title: 'NO PUEDEN QUEDAR RESULTADOS VACÍOS',
+      background: ' #8a1538',
+      color: 'white',
+      imageUrl: 'https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg',
+      icon: 'warning',
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: 'OK'
 
-  if (resutlado3 == resutlado4) {
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
-    paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
-  } else if (resutlado3 > resutlado4) {
-    paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
-  } else {
-    paisMexico.puntos = +paisMexico.puntos + ptsGanar;
+    })
   }
+  else {
+    if (resutlado1 == resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsEmpatar;
+      paisPolonia.puntos = +paisPolonia.puntos + ptsEmpatar;
+    } else if (resutlado1 > resutlado2) {
+      paisArgentina.puntos = +paisArgentina.puntos + ptsGanar;
+    } else {
+      paisPolonia.puntos = +paisPolonia.puntos + ptsGanar;
+    }
 
-  for (const equipo of grupoArgentina) {
-    equipo.partidosJugados++;
-    console.log(
-      `Los puntos finalizada la tercer fecha de ${equipo.nombre} son ${equipo.puntos}`
-    );
+    paisArgentina.golesFavor = + paisArgentina.golesFavor + Number(resutlado1);
+    paisArgentina.golesContra = + paisArgentina.golesContra + Number(resutlado2);
+    paisPolonia.golesFavor = + paisPolonia.golesFavor + Number(resutlado2);
+    paisPolonia.golesContra = + paisPolonia.golesContra + Number(resutlado1);
+
+    if (resutlado3 == resutlado4) {
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsEmpatar;
+      paisMexico.puntos = +paisMexico.puntos + ptsEmpatar;
+    } else if (resutlado3 > resutlado4) {
+      paisArabiaSaudita.puntos = +paisArabiaSaudita.puntos + ptsGanar;
+    } else {
+      paisMexico.puntos = +paisMexico.puntos + ptsGanar;
+    }
+
+    paisArabiaSaudita.golesFavor = +  paisArabiaSaudita.golesFavor + Number(resutlado3);
+    paisArabiaSaudita.golesContra = + paisArabiaSaudita.golesContra + Number(resutlado4);
+    paisMexico.golesFavor = + paisMexico.golesFavor + Number(resutlado4);
+    paisMexico.golesContra = + paisMexico.golesContra + Number(resutlado3);
+
+    for (const equipo of grupoArgentina) {
+      equipo.partidosJugados++;
+      console.log(
+        `Los puntos finalizada la tercer fecha de ${equipo.nombre} son ${equipo.puntos}`
+      );
+    }
+    Swal.fire({
+      title: "Se han guradado los resultados de la fecha 3",
+      background: " #8a1538",
+      color: "white",
+      imageUrl:
+        "https://cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/XUDGIXQ4TVGZDJ7KOQ2APWMKDI.jpg",
+      icon: "success",
+      imageWidth: 600,
+      imageHeight: 200,
+      confirmButtonText: "OK",
+    });
+    fechasJugadas++;
+    btn.style.display = 'none';
+
   }
-  fechasJugadas++;
 }
 
 /* GENERO TABLA MEDIANTE DOM QUE IRA MOSTRANDO Y RENDERIZANDO MEDIANTE EVENTOS.
@@ -409,8 +526,13 @@ function genera_tabla(grupo) {
 
   const tabla = `<tr>
     <th scope="row">@nombre</th>
-    <td>@partidosJugados</td>
-    <td>@puntos</td>    
+    <td>@PJ</td>
+    <td>@PG</td>
+    <td>@PE</td>  
+    <td>@PP</td>  
+    <td>@GF</td>  
+    <td>@GC</td>  
+    <td>@PTS</td>      
     </tr>`;
 
   let tablaPosiciones = "";
@@ -422,8 +544,13 @@ function genera_tabla(grupo) {
   for (let i = 0; i < grupo.length; i++) {
     tablaPosiciones += tabla
       .replace(/@nombre/g, grupo[i].pais)
-      .replace(/@partidosJugados/g, grupo[i].partidosJugados)
-      .replace(/@puntos/g, grupo[i].puntos);
+      .replace(/@PJ/g, grupo[i].partidosJugados)
+      .replace(/@PG/g, grupo[i].partidosGanados)
+      .replace(/@PE/g, grupo[i].partidosEmpatados)
+      .replace(/@PP/g, grupo[i].partidosPerdidos)
+      .replace(/@GF/g, grupo[i].golesFavor)
+      .replace(/@GC/g, grupo[i].golesContra)
+      .replace(/@PTS/g, grupo[i].puntos);
   }
 
   body.innerHTML = tablaPosiciones;

@@ -175,7 +175,7 @@ header a {
     padding-right: 3rem;
     padding-bottom: 3rem;
     padding-top: 3rem;
-    background-color: rgba(0, 0, 0, 0.267);
+    background: rgba(0, 0, 0, 0.685);
 }
 
 #fixture-C h1 {
