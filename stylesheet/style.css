@@ -134,9 +134,7 @@ header a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 1066px) {
-
-   
+@media screen and (max-width: 1066px) {   
      
     .index-principal {
         display: flex;
@@ -229,6 +227,9 @@ header a {
 @media screen and (max-width: 759px) {
     .encuentros {
         flex-direction: column;
+    }
+    .table{
+        max-width: 3rem;
     }
 }
 
