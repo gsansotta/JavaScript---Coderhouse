@@ -1,11 +1,13 @@
 class EquipoC{
-    constructor(id, pais, partidosJugados, partidosGanados, partidosEmpatados, partidosPerdidos, puntos, bandera){
+    constructor(id, pais, partidosJugados, partidosGanados, partidosEmpatados, partidosPerdidos, golesFavor, golesContra, puntos, bandera){
         this.id = id;
         this.pais = pais;
         this.partidosJugados = partidosJugados;
         this.partidosGanados = partidosGanados;
         this.partidosEmpatados = partidosEmpatados;
         this.partidosPerdidos = partidosPerdidos;
+        this.golesFavor=golesFavor;
+        this.golesContra = golesContra;
         this.puntos = puntos;
         this.bandera = bandera;
     }

@@ -6,16 +6,20 @@
     "partidosGanados": 0,
     "partidosEmpatados": 0,
     "partidosPerdidos": 0,
+    "golesFavor": 0,
+    "golesContra": 0,
     "puntos": 0,
     "bandera": "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Argentina-Bandera-America.png"
   },
   {
     "id": "sau",
-    "pais": "Arabia Saudita",
+    "pais": "A.Saudita",
     "partidosJugados": 0,
     "partidosGanados": 0,
     "partidosEmpatados": 0,
     "partidosPerdidos": 0,
+    "golesFavor": 0,
+    "golesContra": 0,
     "puntos": 0,
     "bandera": "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Arabia-Saudita-Bandera-Asia.png"
   },
@@ -26,6 +30,8 @@
     "partidosGanados": 0,
     "partidosEmpatados": 0,
     "partidosPerdidos": 0,
+    "golesFavor": 0,
+    "golesContra": 0,
     "puntos": 0,
     "bandera": "https://www.mundoprimaria.com/wp-content/uploads/2020/04/M%C3%A9xico-Bandera-America.png"
   },
@@ -36,6 +42,8 @@
     "partidosGanados": 0,
     "partidosEmpatados": 0,
     "partidosPerdidos": 0,
+    "golesFavor": 0,
+    "golesContra": 0,
     "puntos": 0,
     "bandera": "https://www.mundoprimaria.com/wp-content/uploads/2020/04/Polonia-Bandera-Europa.png"
   }
