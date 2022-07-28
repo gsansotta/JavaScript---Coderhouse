@@ -458,6 +458,8 @@ p {
         font-size: 2rem;
     }
 
-
+    #btnFinal{
+        border-radius: 1rem;
+    }
 }
 /* FIN CRUCES INTERACTIVOS*/

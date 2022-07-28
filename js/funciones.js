@@ -410,9 +410,11 @@ function creoCuartos(id) {
 
         cuartoAyB.innerHTML = `
     
-    <div class="team">
+    <div class="team" id="cuartos${equipoActual.id}">
     <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
     <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+    <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
+
     </div>     
    `
     }
@@ -431,9 +433,10 @@ function creoCuartos(id) {
         }
         cuartoCyD.innerHTML = `
         
-        <div class="team">
+        <div class="team" id="cuartos${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+        <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
         </div>      
         `
     }
@@ -453,9 +456,10 @@ function creoCuartos(id) {
         }
         cuartoEyF.innerHTML = `
         
-        <div class="team">
+        <div class="team" id="cuartos${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+        <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
         </div>      
         `
     }
@@ -474,12 +478,19 @@ function creoCuartos(id) {
         }
         cuartoGyH.innerHTML = `
         
-        <div class="team">
+        <div class="team" id="cuartos${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+        <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
         </div>      
         `
     }
+
+    let btnCerrar = document.getElementById(`btnCuartos-cerrar${equipoActual.id}`)
+    btnCerrar.addEventListener("click", () => {
+        let ocultarEquipo = document.getElementById(`cuartos${equipoActual.id}`)
+        ocultarEquipo.innerHTML = ""
+    })
 
 }
 
@@ -492,18 +503,20 @@ function creoSemis(id, left, rigth) {
             let semisUno = document.getElementById("izq-uno")
             semisUno.innerHTML = `
         
-        <div class="team">
+        <div class="team"  id="semi${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+        <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
         </div>      
         `
         } else {
             let semisDos = document.getElementById("izq-dos")
             semisDos.innerHTML = `
             
-            <div class="team">
+            <div class="team" id="semi${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
+            <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
             </div>      
             `
 
@@ -515,23 +528,31 @@ function creoSemis(id, left, rigth) {
             let semisTres = document.getElementById("der-uno")
             semisTres.innerHTML = `
         
-        <div class="team">
+        <div class="team" id="semi${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+        <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
         </div>      
         `
         } else {
             let semisCuatro = document.getElementById("der-dos")
             semisCuatro.innerHTML = `
             
-            <div class="team">
+            <div class="team" id="semi${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
+            <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
+            <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
             </div>      
             `
 
         }
     }
+
+    let btnCerrar = document.getElementById(`btnSemi-cerrar${equipoActual.id}`)
+    btnCerrar.addEventListener("click", () => {
+        let ocultarEquipo = document.getElementById(`semi${equipoActual.id}`)
+        ocultarEquipo.innerHTML = ""
+    })
 
 }
 
@@ -546,7 +567,7 @@ function creoFinal(id, left) {
             <div class="team" id="final${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
-            <input type ="button" value="X" id="btn-cerrar">
+            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}"></button>
             </div>      
             `
     } else {
@@ -556,24 +577,24 @@ function creoFinal(id, left) {
             <div class="team" id="final${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
-            <input type ="button" value="X" id="btn-cerrar"> 
+            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}"></button>
             </div>      
             `
     }
 
-    let btnCerrar = document.getElementById("btn-cerrar")
+    let btnCerrar = document.getElementById(`btnFinal-cerrar${equipoActual.id}`)
     btnCerrar.addEventListener("click", () => {
         let ocultarEquipo = document.getElementById(`final${equipoActual.id}`)
         ocultarEquipo.innerHTML = ""
     })
 
-    borrarEquipo()
+  
 
 }
 
 /* FUNCION (POR AHORA DE PRUEBA) PARA ELIMINAR LOS EQUIPOS DE LA FINAL */
-function borrarEquipo(id) {
-    let borrarEquipo = equiposClasificados.filter(actual => actual.id == id.id)[0]
+/* function borrarEquipo(id) {
+    let borrarEquipo = equiposClasificados.filter(actual => actual.id == id.id)[0] 
     let btnCerrar = document.getElementById("btn-cerrar")
     btnCerrar.addEventListener("click", () => {
 
@@ -581,4 +602,10 @@ function borrarEquipo(id) {
         ocultarEquipo.style.display = "none"
 
     })
+}
+ */
+function campeon(id){
+let equipoCampeon = equiposClasificados.filter(actual => actual.id == id.id)
+
+
 }
