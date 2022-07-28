@@ -319,13 +319,11 @@ function cuartoCruce(id) {
         ocultoGrupos.style.display = 'none'
         let acomodoMain = document.getElementById('main-general')
         acomodoMain.style = "justify-content: center"
-        let acomodoCruces = document.getElementById('cruces-interactivos')
-        acomodoCruces.style = "margin-top: 0"
+        let acomodoCruces = document.getElementById('cruces-interactivos') 
+        acomodoCruces.style = "margin-top: 0 !important"        
         let cambioTitulo = document.getElementById("titulo-indicativo")
         cambioTitulo.innerHTML = `<h1>Elegí los equipos que clasificarán a cuartos de final </h1>`
-    }
-
-
+    } 
 }
 
 const recuperoCruceCuatro = () => {
