@@ -5,20 +5,6 @@
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-
-
-}
-
-body {
-
-    /* background: #212529; */
-    /* radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%); */
-    /* width: 90%; */
-
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-
 }
 
 @font-face {
@@ -51,7 +37,6 @@ body {
     display: none;
 }
 
-
 header h3 {
     margin-top: 0.5rem;
     font-size: 1.5vw;
@@ -76,7 +61,7 @@ header a {
     background-size: cover;
 }
 
-.index-principal {    
+.index-principal {
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
@@ -111,7 +96,6 @@ header a {
 
 #logo-afa {
     width: 4rem;
-
 }
 
 #logo-fixture {
@@ -168,20 +152,23 @@ header a {
 
 
 
-
 /* COMIENZO SECCION GRUPO C - ARGENTINA */
 #fixture-C {
-    display: flex;   
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;     
+    text-align: center;
     font-family: Qatar;
     background-image: url("../images/fondo-afa.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    
+}
+
+#titulo-fixture-C {
+    background: rgba(0, 0, 0, 0.685);
+    margin-top: 1rem;
 }
 
 .card {
@@ -216,7 +203,6 @@ header a {
     color: aliceblue;
     text-shadow: 1px 1px 2px black;
     font-family: Qatar;
-
 }
 
 .encuentros h1 {
@@ -230,16 +216,15 @@ header a {
     display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
-
 }
 
 @media screen and (max-width: 759px) {
-    
+
     #titulo-arg {
         font-size: 3vh;
     }
 
-    #fixture-C h1{
+    #fixture-C h1 {
         font-size: 2rem;
     }
 
@@ -259,26 +244,26 @@ header a {
 
 /* COMIENZO SECCION CRUCES INTERACTIVOS */
 
-#main-cruces {
-    display: flex;
+.body-interactivos {
     background: radial-gradient(circle, rgba(173, 0, 52, 1) 0%, rgba(33, 10, 10, 1) 100%);
 }
 
+#main-cruces {
+    display: flex;
+}
+
 #main-cruces h1 {
-    font-size: 1.3vw;
+    font-size: 2vw;
     text-align: center;
-    margin-top: 2rem;
     color: aliceblue;
     font-family: Qatar;
 }
-
 
 #fixture {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
 }
-
 
 .grupo {
     display: flex;
@@ -295,48 +280,10 @@ header a {
     max-width: 500px;
 }
 
-@media screen and (max-width: 898px) {
-    header h3 {
-        font-size: 2.5vw;
-    }
-
-    h1,
-    h3 {
-        font-size: 4vw;
-    }
-
-    main {
-        display: block;
-    }
-
-    #fixture {
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    .primero {
-
-        height: 50px !important;
-        width: 70px !important;
-    }
-
-    img {
-        width: 8rem;
-        align-items: flex-start;
-    }
-
-    #letra-grupo {
-        font-size: 2rem;
-    }
-
-}
-
-
 #letra-grupo {
     font-size: 3rem;
     margin-right: 1rem;
-
+    
 }
 
 .equipo,
@@ -346,7 +293,6 @@ header a {
     align-items: center;
     text-align: center;
 }
-
 
 .img-thumbnail {
     width: 4rem;
@@ -378,14 +324,22 @@ p {
     font-family: Qatar;
 }
 
-
-
 #cruces-interactivos {
     display: flex;
     align-items: center;
     margin-top: 9rem;
-    margin-right: 2rem;
+    margin-right: 12rem;
     font-family: Qatar;
+}
+
+#cruces-interactivos h1 {
+    margin-top: 1rem;
+    margin-left: 6.5rem;
+    position: absolute;
+    color: cornsilk;
+    font-size: 2rem;
+
+    
 }
 
 #cruces-interactivos h4 {
@@ -414,6 +368,30 @@ p {
 
 #acomodo-cuartos {
     margin-bottom: 9rem;
+}
+
+#versus-cuartos{
+    margin-left: 13rem !important;
+    color: cornsilk;
+    position: absolute;
+}
+
+#versus-cuartos-der{
+    margin-right: 12rem !important;
+    position: absolute;
+    color: cornsilk;
+}
+
+#versus-semis-izq{
+    margin-left: 20rem !important;
+    color: cornsilk;
+    position: absolute;
+}
+
+#versus-semis-der{
+    color: cornsilk;
+    position: absolute;
+    margin-left: 46rem !important;
 }
 
 
@@ -445,17 +423,41 @@ p {
     margin-bottom: 30rem;
 }
 
+@media screen and (max-width: 898px) {
+    header h3 {
+        font-size: 2.5vw;
+    }
+
+    #main-cruces h1,
+    #main-cruces h3 {
+        font-size: 4vw;
+    }
+
+    #main-cruces {
+        display: block;
+    }
+
+    #fixture {
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .primero {
+
+        height: 30px !important;
+        width: 50px !important;
+    }
+
+    img {
+        width: 8rem;
+        align-items: flex-start;
+    }
+
+    #letra-grupo {
+        font-size: 2rem;
+    }
+
+
+}
 /* FIN CRUCES INTERACTIVOS*/
-
-
-
-
-
-
-
-
-
-
-
-
-
