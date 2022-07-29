@@ -77,7 +77,6 @@ header a {
 
 #banner-argentina,
 #banner-fixture {
-    /* background-color: rgba(0, 255, 255, 0.31); */
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
     margin-top: 1rem;
     text-align: center;
@@ -241,7 +240,6 @@ header a {
 
 
 
-
 /* COMIENZO SECCION CRUCES INTERACTIVOS */
 
 .body-interactivos {
@@ -317,6 +315,10 @@ header a {
     transform: scale(1.1) translateY(1px);
 }
 
+#botonCampeon{ width: 60px;
+    height: 25px;
+    margin-top: 10px;}
+
 p {
     font-size: 9px;
     text-align: center;
@@ -337,9 +339,7 @@ p {
     margin-left: 6.5rem;
     position: absolute;
     color: cornsilk;
-    font-size: 2rem;
-
-    
+    font-size: 2rem;    
 }
 
 #cruces-interactivos h4 {
@@ -352,7 +352,6 @@ p {
     height: 70px;
     width: 60px;
 }
-
 
 .octavos-uno,
 .cuartos-uno,
@@ -393,7 +392,6 @@ p {
     position: absolute;
     margin-left: 46rem !important;
 }
-
 
 #priC,
 #priD,
@@ -457,9 +455,6 @@ p {
     #letra-grupo {
         font-size: 2rem;
     }
-
-    #btnFinal{
-        border-radius: 1rem;
-    }
+    
 }
 /* FIN CRUCES INTERACTIVOS*/
