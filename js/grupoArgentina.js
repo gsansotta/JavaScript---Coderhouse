@@ -1,4 +1,5 @@
-/* CREO LOS CRUCES PARA LAS PRIMERAS 3 FECHAS DE LA FASE DE GRUPO MEDIANTE EL USO DE DOM 
+/* CREO LOS CRUCES PARA LAS PRIMERAS 3 FECHAS DE LA FASE DE GRUPO MEDIANTE EL USO DE DOM A PARTIR DE LA BASE DE DATOS SIMULADA
+EN EL ACRHIVO EQUIPOS.JSON.
 SOLO UTILIZARÉ EL GRUPO DE ARGENTINA (GRUPO C)
 */
 const ptsGanar = 3;
@@ -15,7 +16,6 @@ let paisPolonia;
 let grupoArgentina = [];
 
 /* TRAIGO LOS OBJETOS DEL ARCHIVO EQUIPOS.JSON Y LUEGO LOS CONVIERTO EN OBJETOS DE LA CLASE EquipoC */
-
 async function recuperoEquiposGrupoC() {
   await fetch("../json/equipos.json")
     .then((resp) => resp.json())
@@ -86,7 +86,6 @@ async function recuperoEquiposGrupoC() {
         paisMexico,
         paisPolonia,
       ];
-      /* localStorage.setItem("grupoC", JSON.stringify(data)); */
       jugarFecha1(data);
       jugarFecha2(data);
       jugarFecha3(data);
@@ -106,17 +105,13 @@ function jugarFecha1(grupo) {
   let sectionFechaUno = document.createElement("section");
   sectionFechaUno.className = "fechaUno";
   sectionFechaUno.innerHTML = `
-
-                               <h1>FECHA 1</h1> 
-
-            
+                               <h1>FECHA 1</h1>             
 
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
             <img src="${grupo[0]["bandera"]}" class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title"> ${grupo[0]["pais"]}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[0]["id"]}"> </div>
-            
+            <h5 class="card-title"> ${grupo[0]["pais"]}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[0]["id"]}"> </div>            
             </div>    
 
             <h1>VS</h1>  
@@ -126,8 +121,7 @@ function jugarFecha1(grupo) {
             <div class="card-body">
             <h5 class="card-title"> ${grupo[1]["pais"]}</h5><input type="number" min="0" max="9" id="primerResultado${grupo[1]["id"]}"> </div>
             </div>
-            </div>            
-
+            </div>         
 
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
@@ -143,11 +137,7 @@ function jugarFecha1(grupo) {
             <div class="card-body">
             <h5 class="card-title"> ${grupo[3]["pais"]}</h5> <input type="number" min="0" max="9" id="primerResultado${grupo[3]["id"]}"> </div>
             </div></div>
-            
-            
             <button type="button" class="btn btn-danger" onclick="guardarFecha1('fecha1')" id="btn-uno" >Guardar Fecha 1</button>
-
-           
             
             `;
 
@@ -162,7 +152,6 @@ function jugarFecha2(grupo) {
   sectionFechaDos.innerHTML = `
                                       <h1>FECHA 2</h1>  
                     
-
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
             <img src="${grupo[0]["bandera"]}" class="card-img-top" alt="...">
@@ -178,7 +167,6 @@ function jugarFecha2(grupo) {
             <h5 class="card-title"> ${grupo[2]["pais"]}</h5> <input type="number" min="0" max="9" id="segundoResultado${grupo[2]["id"]}"> </div>
             </div>
             </div>
-
 
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
@@ -208,7 +196,6 @@ function jugarFecha3(grupo) {
   sectionFechaTres.innerHTML = `
                                       <h1>FECHA 3</h1>  
                     
-
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
             <img src="${grupo[0]["bandera"]}" class="card-img-top" alt="...">
@@ -224,7 +211,6 @@ function jugarFecha3(grupo) {
             <h5 class="card-title"> ${grupo[3]["pais"]}</h5> <input type="number" min="0" max="9" id="tercerResultado${grupo[3]["id"]}"> </div>
             </div>
             </div>
-
 
             <div class="encuentros">
             <div class="card" style="width: 18rem;">
@@ -247,7 +233,7 @@ function jugarFecha3(grupo) {
 
 
 /* LOS TRES BOTONES GUARDAR FECHA CORERSPONDIENTES A CADA FECHA TIENEN EL EVENTO CLICK, A PARTIR DEL CUAL LE PASO LAS FUNCIONES DEVUELVO FECHA Y 
-GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEGEN EN LA TABLA DE POSICIONES */
+GENERA TABLA PARA QUE ENVÍE LOS DATOS EN FUNCION DE LOS RESULTADOS Y SE REFLEJEN EN LA TABLA DE POSICIONES */
 
 function guardarFecha1() {
   devuelvoRdoFecha1();

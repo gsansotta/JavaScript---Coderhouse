@@ -2,6 +2,7 @@
 
 EL USUARIO SELECCIONARÁ DOS EQUIPOS POR GRUPO (LOS DOS CLASIFICADOS DE LA FASE DE GRUPOS) Y AUTOMÁTICAMENTE
 SE IRÁN ARMANDO LOS CRUCES DINAMICAMENTE HASTA LLEGAR A LA FINAL.
+A PARTIR DE CUARTOS, SE PUEDEN ELIMINAR LOS EQUIPOS QUE SE VAN SELECCIONANDO.
 
 
 
@@ -46,8 +47,6 @@ function mostrarEquipos(grupo, funcionDinamica, letraGrupo) {
 
 }
 
-
-
 mostrarEquipos(grupoA, "primerCruce", "A")
 mostrarEquipos(grupoB, "primerCruce", "B")
 mostrarEquipos(grupoC, "segundoCruce", "C")
@@ -56,8 +55,6 @@ mostrarEquipos(grupoE, "tercerCruce", "E")
 mostrarEquipos(grupoF, "tercerCruce", "F")
 mostrarEquipos(grupoG, "cuartoCruce", "G")
 mostrarEquipos(grupoH, "cuartoCruce", "H")
-
-
 
 /* FUNCION PARA ARMAR LOS CRUCES DE OCTAVOS DE FINAL (GRUPO A CRUZA CON GRUPO B)
 
@@ -120,9 +117,6 @@ function primerCruce(id) {
         }
     }
 
-
-
-
     /* CUANDO SALGO DEL FOR OF CON LOS 4 QEQUIPOS, LOS PUSHEO AL ARRAY CRUCE1 Y LO SETEO EN EL LOCAL STORAGE PARA 
     PARA LUEGO TRAERLOS COMO OBJETO CON LA FUNCION RECUPERO CRUCE*/
     cruce1.push(...equiposGrupoA)
@@ -130,7 +124,6 @@ function primerCruce(id) {
     localStorage.setItem('cruce1', JSON.stringify(cruce1))
     cruzarEquipo(cruce1, ["A", "A", "B", "B"], "cuartos")
 }
-
 
 
 const recuperoCruceUno = () => {
@@ -144,9 +137,7 @@ recuperoCruceUno();
 console.log(JSON.parse(localStorage.getItem('cruce1')))
 
 
-
 ///////////////////////////////////////////////////////SEGUNDO CRUCE GRUPO C-D///////////////////////////////////////////////////////
-
 
 function segundoCruce(id) {
     let equiposGrupoC = [];
@@ -181,13 +172,9 @@ function segundoCruce(id) {
                         confirmButtonText: 'OK'
                     })
                 }
-
-
             }
         }
-
     }
-
     cruce2.push(...equiposGrupoC)
     cruce2.push(...equiposGrupoD)
     localStorage.setItem('cruce2', JSON.stringify(cruce2))
@@ -196,14 +183,11 @@ function segundoCruce(id) {
 const recuperoCruceDos = () => {
     let cruceDosRecuperado = JSON.parse(localStorage.getItem("cruce2"));
     console.log(cruceDosRecuperado)
-
 }
 recuperoCruceDos();
 
 //MUESTRO POR CONSOLA EL SEGUNDO CRUCE DEL LOCAL STORAGE//
 console.log(JSON.parse(localStorage.getItem('cruce2')))
-
-
 
 
 ///////////////////////////////////////////////////////TERCER CRUCE GRUPO E-F///////////////////////////////////////////////////////
@@ -223,7 +207,6 @@ function tercerCruce(id) {
                 if (ajustoEleccionE.length < 2 && equipo.grupo == "E") {
                     equiposGrupoE.push(equipo)
                     ocultoEquipo.style.display = 'none';
-
                 }
                 if (ajustoEleccionF.length < 2 && equipo.grupo == "F" && ajustoEleccionE.length > 1) {
                     equiposGrupoF.push(equipo)
@@ -245,9 +228,7 @@ function tercerCruce(id) {
 
             }
         }
-
     }
-
     cruce3.push(...equiposGrupoE)
     cruce3.push(...equiposGrupoF)
     localStorage.setItem('cruce3', JSON.stringify(cruce3))
@@ -256,7 +237,6 @@ function tercerCruce(id) {
 const recuperoCruceTres = () => {
     let cruceTresRecuperado = JSON.parse(localStorage.getItem("cruce3"));
     console.log(cruceTresRecuperado)
-
 }
 recuperoCruceTres();
 
@@ -277,7 +257,6 @@ function cuartoCruce(id) {
             console.log(cruce4)
             let ocultoEquipo = document.getElementById(equipo.id)
             if (cruce4.length < 4) {
-
                 if (ajustoEleccionG.length < 2 && equipo.grupo == "G") {
                     equiposGrupoG.push(equipo)
                     ocultoEquipo.style.display = 'none';
@@ -287,7 +266,6 @@ function cuartoCruce(id) {
                     equiposGrupoH.push(equipo)
                     ocultoEquipo.style.display = 'none';
                 }
-
                 if (equipo.grupo == "H" && ajustoEleccionG.length < 2) {
                     Swal.fire({
                         title: 'Primero debes elegir los dos equipos del grupo G',
@@ -300,15 +278,9 @@ function cuartoCruce(id) {
                         confirmButtonText: 'OK'
                     })
                 }
-
-
-
-
             }
         }
-
     }
-
     cruce4.push(...equiposGrupoG)
     cruce4.push(...equiposGrupoH)
     localStorage.setItem('cruce4', JSON.stringify(cruce4))
@@ -319,11 +291,11 @@ function cuartoCruce(id) {
         ocultoGrupos.style.display = 'none'
         let acomodoMain = document.getElementById('main-general')
         acomodoMain.style = "justify-content: center"
-        let acomodoCruces = document.getElementById('cruces-interactivos') 
-        acomodoCruces.style = "margin-top: 0 !important"        
+        let acomodoCruces = document.getElementById('cruces-interactivos')
+        acomodoCruces.style = "margin-top: 0 !important"
         let cambioTitulo = document.getElementById("titulo-indicativo")
         cambioTitulo.innerHTML = `<h1>Elegí los equipos que clasificarán a cuartos de final </h1>`
-    } 
+    }
 }
 
 const recuperoCruceCuatro = () => {
@@ -335,7 +307,6 @@ recuperoCruceCuatro();
 
 //MUESTRO POR CONSOLA EL CUARTO CRUCE DEL LOCAL STORAGE//
 console.log(JSON.parse(localStorage.getItem('cruce4')))
-
 
 
 /* FUNCION PARA ARMAR DINAMICAMENTE LOS CRUCES DE OCTAVOS DE FINAL */
@@ -354,45 +325,34 @@ function cruzarEquipo(cruce, ubicacion, instancia = "") {
     const primeroB = document.getElementById(`pri${ubicacion[2]}`)
     const segundoB = document.getElementById(`seg${ubicacion[3]}`)
 
-
-    primeroA.innerHTML = ` 
-
-    
-    <div class="team" id = "${cruce[0]['nombre']}">
+    primeroA.innerHTML = `     
+    <div class="team">    
     <img src="${cruce[0]['bandera']}" class="img-thumbnail" alt="${cruce[0]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[0]['id']}')" id="boton-cruces"><p>${cruce[0]['nombre']}</p></button>   
     </div>  `
 
-    segundoA.innerHTML = `          
-   
+    segundoA.innerHTML = `       
     <div class="team">
     <img src="${cruce[1]['bandera']}" class="img-thumbnail" alt="${cruce[1]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[1]['id']}')" id="boton-cruces"><p>${cruce[1]['nombre']}</p></button>
     </div>`
 
     primeroB.innerHTML = `          
-    
     <div class="team">
     <img src="${cruce[2]['bandera']}" class="img-thumbnail" alt="${cruce[2]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[2]['id']}')" id="boton-cruces"><p>${cruce[2]['nombre']}</p></button>
     </div>`
 
     segundoB.innerHTML = `          
-   
     <div class="team">
     <img src="${cruce[3]['bandera']}" class="img-thumbnail" alt="${cruce[3]['nombre']}-error" >        
     <button type="button" class="btn btn-light" onclick="${instanciasFinales}('${cruce[3]['id']}')" id="boton-cruces"><p>${cruce[3]['nombre']}</p></button>
     </div>`
-
-
 }
 
 /* FUNCION PARA CREAR LOS CUARTOS DE FINAL. IMPLEMENTO LAS VARIABLES LEFT Y RIGTH PARA PODER LUEGO UBICAR LOS EQUIPOS EN EL CUADRO */
 function creoCuartos(id) {
-
     let left, rigth = false;
-
-
     let equipoActual = equiposClasificados.filter(actual => actual.id == id)[0]
 
     if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B")) {
@@ -401,26 +361,22 @@ function creoCuartos(id) {
         if (espacio == 0 || espacio == 3) {
             cuartoAyB = document.getElementById("cuartos-AB")
             left = true;
-
         }
         if (espacio == 1 || espacio == 2) {
             cuartoAyB = document.getElementById("cuartos-BA")
             rigth = true;
         }
 
-        cuartoAyB.innerHTML = `
-    
+        cuartoAyB.innerHTML = `    
     <div class="team" id="cuartos${equipoActual.id}">
     <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
     <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
     <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
-
     </div>     
    `
     }
 
     if (equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
-
         let cuartoCyD;
         let espacio = cruce2.map(e => e.id).indexOf(id);
         if (espacio == 0 || espacio == 3) {
@@ -431,8 +387,7 @@ function creoCuartos(id) {
             cuartoCyD = document.getElementById("cuartos-DC")
             rigth = true;
         }
-        cuartoCyD.innerHTML = `
-        
+        cuartoCyD.innerHTML = `        
         <div class="team" id="cuartos${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
@@ -442,7 +397,6 @@ function creoCuartos(id) {
     }
 
     if (equipoActual.grupo.includes("E") || equipoActual.grupo.includes("F")) {
-
         let cuartoEyF;
         let espacio = cruce3.map(e => e.id).indexOf(id);
         if (espacio == 0 || espacio == 3) {
@@ -452,7 +406,6 @@ function creoCuartos(id) {
         if (espacio == 1 || espacio == 2) {
             cuartoEyF = document.getElementById("cuartos-FE")
             rigth = true;
-
         }
         cuartoEyF.innerHTML = `
         
@@ -460,8 +413,7 @@ function creoCuartos(id) {
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
         <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
-        </div>      
-        `
+        </div> `
     }
 
     if (equipoActual.grupo.includes("G") || equipoActual.grupo.includes("H")) {
@@ -482,8 +434,7 @@ function creoCuartos(id) {
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoSemis(${equipoActual.id},${left},${rigth})" id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
         <button type="button" class="btn-close" aria-label="Close" id="btnCuartos-cerrar${equipoActual.id}"}></button>
-        </div>      
-        `
+        </div> `
     }
 
     let btnCerrar = document.getElementById(`btnCuartos-cerrar${equipoActual.id}`)
@@ -491,7 +442,6 @@ function creoCuartos(id) {
         let ocultarEquipo = document.getElementById(`cuartos${equipoActual.id}`)
         ocultarEquipo.innerHTML = ""
     })
-
 }
 
 /* FUNCION PARA CREAR LAS SEMIFINALES, MISMA LOGICA QUE PARA LOS CUARTOS DE FINAL PARA ASEGURARME LOS CRUCES REALES */
@@ -501,25 +451,20 @@ function creoSemis(id, left, rigth) {
     if (left) {
         if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B") || equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
             let semisUno = document.getElementById("izq-uno")
-            semisUno.innerHTML = `
-        
+            semisUno.innerHTML = `        
         <div class="team"  id="semi${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
         <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
-        </div>      
-        `
+        </div> `
         } else {
             let semisDos = document.getElementById("izq-dos")
-            semisDos.innerHTML = `
-            
+            semisDos.innerHTML = `            
             <div class="team" id="semi${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
             <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
-            </div>      
-            `
-
+            </div> `
         }
     }
 
@@ -527,24 +472,19 @@ function creoSemis(id, left, rigth) {
         if (equipoActual.grupo.includes("A") || equipoActual.grupo.includes("B") || equipoActual.grupo.includes("C") || equipoActual.grupo.includes("D")) {
             let semisTres = document.getElementById("der-uno")
             semisTres.innerHTML = `
-        
         <div class="team" id="semi${equipoActual.id}">
         <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
         <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id},${left},${rigth})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
         <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
-        </div>      
-        `
+        </div> `
         } else {
             let semisCuatro = document.getElementById("der-dos")
-            semisCuatro.innerHTML = `
-            
+            semisCuatro.innerHTML = `            
             <div class="team" id="semi${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
             <button type="button" class="btn btn-light" onclick="creoFinal(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
             <button type="button" class="btn-close" aria-label="Close" id="btnSemi-cerrar${equipoActual.id}"}></button>
-            </div>      
-            `
-
+            </div>`
         }
     }
 
@@ -561,25 +501,20 @@ function creoFinal(id, left) {
     let equipoActual = equiposClasificados.filter(actual => actual.id == id.id)[0]
     if (left) {
         let primerFinalista = document.getElementById("final-A")
-
-        primerFinalista.innerHTML = `
-        
+        primerFinalista.innerHTML = `        
             <div class="team" id="final${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>   
-            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}"></button>
-            </div>      
-            `
+            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="botonCampeon${equipoActual.id}"><p>${equipoActual.nombre}</p></button>   
+            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}" ></button>
+            </div> `
     } else {
         let segundoFinalista = document.getElementById("final-B")
-        segundoFinalista.innerHTML = `
-            
+        segundoFinalista.innerHTML = `            
             <div class="team" id="final${equipoActual.id}">
             <img src="${equipoActual.bandera}" class="img-thumbnail" alt="${equipoActual.nombre}-error" >        
-            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="boton-cruces"><p>${equipoActual.nombre}</p></button>  
-            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}"></button>
-            </div>      
-            `
+            <button type="button" class="btn btn-light" onclick="campeon(${equipoActual.id})"id="botonCampeon${equipoActual.id}"><p>${equipoActual.nombre}</p></button>  
+            <button type="button" class="btn-close" aria-label="Close" id="btnFinal-cerrar${equipoActual.id}" "id="boton-cruces"></button>
+            </div>`
     }
 
     let btnCerrar = document.getElementById(`btnFinal-cerrar${equipoActual.id}`)
@@ -588,24 +523,22 @@ function creoFinal(id, left) {
         ocultarEquipo.innerHTML = ""
     })
 
-  
-
-}
-
-/* FUNCION (POR AHORA DE PRUEBA) PARA ELIMINAR LOS EQUIPOS DE LA FINAL */
-/* function borrarEquipo(id) {
-    let borrarEquipo = equiposClasificados.filter(actual => actual.id == id.id)[0] 
-    let btnCerrar = document.getElementById("btn-cerrar")
-    btnCerrar.addEventListener("click", () => {
-
-        let ocultarEquipo = document.getElementById(`final${borrarEquipo.id}`)
-        ocultarEquipo.style.display = "none"
-
+    let btnCampeon = document.getElementById(`botonCampeon${equipoActual.id}`)
+    btnCampeon.addEventListener("click", () => {
+        Swal.fire({
+            title: `¡${equipoActual.nombre} ha salido campeón del mundo!`,
+            background: " #212529",
+            color: "white",
+            imageUrl: `${equipoActual.bandera}`,
+            imageWidth: 600,
+            imageHeight: 200,
+            confirmButtonText: "OK",
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
     })
-}
- */
-function campeon(id){
-let equipoCampeon = equiposClasificados.filter(actual => actual.id == id.id)
-
-
 }
