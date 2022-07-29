@@ -561,3 +561,10 @@ function genera_tabla(grupo) {
 recuperoEquiposGrupoC().then(() => {
   genera_tabla(grupoArgentina);
 });
+
+btnMexico = document.getElementById("btn-mx")
+btnMexico.addEventListener("click", () => {
+  let cambioFondo = document.getElementById("fixture-C")
+  cambioFondo.style.backgroundImage = "url('../images/fondo-mx.jpg')";
+   
+})
